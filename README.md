@@ -1,4 +1,4 @@
 javascript-web-developers
 =========================
 
-Example code from the book Professional JavaScript for Web Developers
+Example code for the books Professional JavaScript for Web Developers and DOM Scripting.
