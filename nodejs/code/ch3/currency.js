@@ -11,3 +11,7 @@ exports.canadianToUS = function(canadian) {
 exports.USToCanadian = function(us) {
   return roundTwoDecimals(us / canadianDollar);
 }
+
+exports.myDuck = function(name) {
+    return "My duck name is " + name
+}
