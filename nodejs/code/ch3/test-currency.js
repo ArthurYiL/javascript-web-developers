@@ -1,5 +1,6 @@
 var currency = require('./currency'); 
 var MyProto = require('./proto');
+//var MyProto = require('./prototwo');
 
 console.log('50 Canadian dollars equals this amount of US dollars:');
 console.log(currency.canadianToUS(50));
