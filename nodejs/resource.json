@@ -1,5 +1,12 @@
+[
 {
     name: 'joe',
     age: 25,
     country: 'uruguay'
+},
+{
+    name: 'pete',
+    age: 42,
+    country: 'argentina'
 }
+]
