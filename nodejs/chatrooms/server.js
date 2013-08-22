@@ -11,6 +11,9 @@ function send404(response) {
 }
 
 function sendFile(response, filePath, fileContents) {
+  console.log("test filepath: " + filePath);
+  //console.log("filepath " + filePath);
+  //console.log("mime: " + mime.lookup(path.basename(filePath)));
   response.writeHead(
     200,
     {"content-type": mime.lookup(path.basename(filePath))}
@@ -19,6 +22,7 @@ function sendFile(response, filePath, fileContents) {
 }
 
 function serveStatic(response, cache, absPath) {
+  //console.log("absPath " + absPath);
   if (cache[absPath]) {
     sendFile(response, absPath, cache[absPath]);
   } else {
