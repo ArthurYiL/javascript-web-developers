@@ -1,0 +1,367 @@
+@import "newsprite/*.png";
+#TB_overlay {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75) !important;
+}
+
+#user-login, #cap-login-user-register, #thanks {
+  font-family: $type-vertical;
+
+  .close-btn {
+    @include newsprite-sprite(pro-login-close);
+    margin: .5em -.5em .5em 0em;
+    display: block;
+    height: 25px;
+    width: 25px;
+    text-indent: -9998px;
+    float: right;
+  }
+
+  .click-thru {
+    @include newsprite-sprite(icon-arrow-next);
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    text-indent: -9998px;
+  }
+
+  #logo {
+    width: 212px;
+    margin-bottom: 18px;
+  }
+
+  .content {
+    border-top: 1px solid #b9b9b9;
+    clear: both;
+    padding-top: 1.5em;
+  }
+
+  h2 {
+    font-size: 34px;
+    line-height: 36px;
+    font-weight: 700;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #db4111;
+    letter-spacing: .025em;
+    line-height: 30px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  label {
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  input[type="text"], input[type="password"] {
+    border: 1px solid #b9b9b9;
+    padding: 0.65em .5em;
+    width: 100%;
+  }
+
+  .form-required {
+    font-size: 16px;
+    color: #db4111;
+  }
+
+  #edit-submit {
+    background: #1288b8;
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: .025em;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+    padding: 0.45em 2.35em;
+    display: block;
+    clear: both;
+    border: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -khtml-border-radius: 5px;
+  }
+}
+
+#user-login {
+  .login {
+    float: left;
+    width: 305px;
+    margin-top: 15px;
+    padding: 0 15px;
+  }
+
+  #edit-remember-me-wrapper {
+    float: left;
+
+    label {
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .forgot {
+    font-weight: 600;
+    font-size: 12px;
+    float: right;
+    margin-top: 10px;
+    
+    a {
+      color: #1288b8;
+     }
+  }
+  
+  .register {
+    margin-top: 15px;
+    background: #efeff1;
+    float: right;
+    width: 300px;
+    padding: 0 15px;
+    height: 275px;
+
+    p {
+      font-size: 15px;
+      text-align: center;
+      color: #666666;
+      line-height: 20px;
+      font-weight: 400;
+
+      &.first {
+        margin-top: 22%;
+        padding-bottom: 0;
+      }
+
+      strong {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+
+    .register-link {
+      background: #9e9e9e;
+      font-weight: 700;
+      font-size: 16px;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: .025em;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+      margin-top: 5px;
+      padding: 0.65em 1.25em;
+      width: 50%;
+      margin-top: 10px;
+      margin-left: 20%;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      -khtml-border-radius: 5px;
+      
+      a {
+        color: #ffffff;
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+}
+
+.node-type-page #cap-login-user-register {
+  .messages {
+    font-size: .75em;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+#TB_ajaxContent #cap-login-user-register {
+  .messages {
+    font-size: 1.1em;
+    padding: .25em;
+  }
+}
+
+#cap-login-user-register {
+  h2 {
+    font-size: 31px;
+    line-height: 32px;
+  }
+
+  h3 {
+    font-size: 18px;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 21px;
+    padding: .5em 0 1.25em 0;
+  }
+
+  .register {
+    width: 310px;
+    float: left;
+
+    &.embedded {
+      width: 40%;
+      margin-right: 2em;
+      margin-bottom: 8em;
+
+      p.notice {
+        float: none;
+        width: 100%;
+        margin-top: 2em;
+      }
+    }
+  }
+
+  .form-checkboxes label {
+    font-weight: 400;
+  }
+
+  .contact {
+    margin-top: 15px;
+    background: #efeff1;
+    float: right;
+    width: 300px;
+    padding: 15px;
+
+    p {
+      font-size: 15px;
+      color: #666666;
+      line-height: 20px;
+      font-weight: 400;
+
+      &.first {
+        padding-bottom: 0;
+      }
+
+      strong {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+
+    div {
+      margin-top: 10px;
+
+      p {
+        padding: 0;
+
+        a {
+          color: #1288b8;
+        }
+      }
+    }
+  }
+
+  p.notice {
+    font-size: 13px;
+    color: #404040; 
+    line-height: 15px;
+    clear: both;
+    float: right;
+    width: 75%;
+    margin-top: -40px;
+    margin-bottom: 2em;
+  }
+}
+
+#thanks {
+  .content {
+    clear: left;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 22px;
+    text-transform: none;
+    margin: .85em 0 .75em 0;
+  }
+
+  p {
+    margin: .5em 0;
+
+    &.address {
+      font-size: 14px;
+      margin-top: 1em;
+    }
+
+    &.close {
+      font-weight: 400;
+      font-size: 14px;
+
+      a {
+        color: #1288b8;
+      }
+    }
+
+    strong {
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #TB_window {
+    margin: -150px !important;
+    width: 94% !important;
+
+    #TB_ajaxContent {
+      width: 94% !important;
+      height: 300px !important;
+      overflow-y: scroll; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    h3 {
+      line-height: 20px;
+      margin-top: 10px;
+    }
+
+    .login {
+      float: none;
+      width: 94%;
+      padding: 0;
+    }
+
+    .register {
+      width: 94%;
+      float: none;
+    }
+
+    #user-login {
+      .register {
+        height: 200px;
+        margin-top: 10px;
+        padding: 1px 0 0 0;
+      }
+
+      p.first {
+        margin-top: 11%;
+      }
+    }
+
+    .contact {
+      float: none;
+      width: 94%;
+      padding: 5px;
+      margin-top: 25px;
+    }
+
+    p.notice {
+      float: none;
+      width: 94%;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+  }
+
+  #cap-login-user-register .register.embedded {
+    width: 94%;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+}

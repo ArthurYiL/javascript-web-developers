@@ -1,0 +1,414 @@
+@import "socialbuttons/*.png";
+@import "usericon/*.png";
+
+#block-cap-user_info {
+  position: relative;
+  font-family: $type-headline;
+
+  &.clear-block:after {
+    content: none;
+  }
+
+  .content {
+    background-color: #dfe2e3;
+    overflow: hidden;
+  }
+
+  h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+
+    @media screen and (max-width: 480px) {
+      margin-bottom: .5em;
+    }
+  }
+
+  #cap-user-connect {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @media screen and (max-width: 480px) {
+      position: relative;
+      top: 0;
+      margin: 1em 0;
+    }
+
+    li {
+      display: inline-block;
+      height: 16px;
+      margin-left: 8px;
+      vertical-align: middle;
+    
+      &.label {
+        font-size: 11px;
+        color: #777;
+        line-height: 16px;
+      }
+    
+      a {
+        display: block;
+        text-indent: -9998px;
+        width: 15px;
+        height: 16px;
+
+        &.socialbuttons-twitter {
+          @include socialbuttons-sprite(twitter);
+        }
+
+        &.socialbuttons-facebook {
+          @include socialbuttons-sprite(facebook);
+        }
+
+        &.socialbuttons-flickr {
+          @include socialbuttons-sprite(flickr);
+        }
+        
+        &.socialbuttons-mail {
+          @include socialbuttons-sprite(mail);
+        }
+
+        &.socialbuttons-rss {
+          @include socialbuttons-sprite(rss);
+        }
+
+        &.socialbuttons-tumblr {
+          @include socialbuttons-sprite(tumblr);
+        }
+
+        &.socialbuttons-vimeo {
+          @include socialbuttons-sprite(vimeo);
+        }
+      }
+    }
+  }
+
+  #user-profile-info {
+    .picture.left {
+      float: left;
+    }
+  }
+
+  #wrapper-happy {
+    position: relative;
+    top: 15px;
+    left: 25px;
+    float: left;
+
+    #content-wrapper {
+      background: url('/sites/all/themes/capitalny/images/sprites.png');
+      background-position: 0 -1196px;
+      height: 96px;
+      width: 404px;
+      text-indent: 0;
+
+      #left-point {
+        background: url("/sites/all/themes/capitalny/images/sprites.png");
+        background-position: 0 -1105px;
+        text-indent: -9999px;
+        height: 90px;
+        width: 11px;
+        margin-left: -11px;
+        text-indent: 0;
+        float: left;
+      }
+
+      .recent-content {
+        padding: 0 8px 8px 8px;
+        font-size: 1.1em;
+        height: 83px;
+        overflow: hidden;
+        margin-bottom: 1em;
+        line-height: 1.25;
+
+        p {
+          margin: .75em 0;
+        }
+
+        a {
+          color: #55b3d5;
+          text-decoration: underline;
+        }
+      }
+
+      .bio {
+        font-size: 1.2em;
+        padding: 0 3px;
+        width: 400px;
+        line-height: 1.35;
+
+        strong {
+          font-weight: 600;
+        }
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      left: 0;
+      clear: both;
+      float: none;
+      border: 1px solid #dfe2e3;
+      position: inherit;
+
+      #content-wrapper {
+        background: #ffffff;
+        height: auto;
+        width: auto;
+
+        .recent-content {
+          height: auto;
+          margin-bottom: 0;
+        }
+
+        .bio {
+          width: auto;
+          font-size: 1.2em;
+          padding: 8px;
+        }
+      }
+
+      #left-point {
+        display: none;
+      }
+    }
+  }
+
+  #recent-topics {
+    width: 50px;
+    height: 187px;
+    padding: 7px 7px 8px 15px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #ededed;
+    overflow: hidden;
+
+    @media screen and (max-width: 480px) {
+      width: 66px;
+      top: 65px;
+    }
+
+    h4 {
+      text-transform: uppercase;
+      color: #787878;
+      padding: 0;
+      margin: 0;
+      font-size: .9em;
+      font-weight: bolder;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 3px 0;
+
+      li {
+        margin: 5px 0 0 0;
+        padding: 0;
+
+        a {
+          color: #55b3d5;
+          text-decoration: none;
+          font-weight: 600;
+          line-height: 1;
+          font-size: .95em;
+        }
+      }
+    }
+  }
+}
+
+#user-nodes {
+  font-family: $type-headline;
+  margin-top: 1.5em;
+  font-size: 1.4em;
+  color: #3a3a3a;
+  line-height: 1.5em;
+
+  #user-nodes-header {
+    float: left;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+  }
+
+  #user-nodes-links {
+    list-style: none;
+    float: right;
+    margin: 2px 0 0 0;
+
+    li {
+      height: 18px;
+      float: left;
+      text-transform: uppercase;
+      font-size: .7em;
+      font-weight: 900;
+      
+      a {
+        font-weight: 300;
+        color: #6b6b6b;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #user-nodes-bar {
+    border-top: 1px solid black;
+    margin-top: 3px;
+    clear: left;
+
+    .views-row {
+      margin-bottom: 20px;
+      overflow: hidden;
+      height: 100%;
+
+      .user-icon {
+        float: left;
+        margin: 20px 5px 0 0;
+        height: 32px;
+        width: 32px;
+        text-indent: -9998px;
+        @include usericon-sprite(article);
+
+        &.usericon-tweet {
+          @include usericon-sprite(tweet);
+        }
+
+        &.usericon-reading {
+          @include usericon-sprite(reading);
+        }
+
+        &.usericon-comment {
+          @include usericon-sprite(comment);
+        }
+
+        &.usericon-flickr {
+          @include usericon-sprite(flickr);
+        }
+
+        &.usericon-tumblr {
+          @include usericon-sprite(tumblr);
+        }
+      }
+
+      .post {
+        margin-left: 40px;
+        background: #fff;
+        padding-top: 18px;
+
+        h2 {
+          line-height: 24px;
+          a {
+            font-weight: 600;
+            font-size: 22px;
+            margin-bottom: 10px;
+            line-height: 24px;
+            letter-spacing: .015em;
+            }
+        }
+
+        .teaser-image {
+          margin: 5px 10px 0 0;
+          float: left;
+        }
+
+        p {
+          margin-top: 0;
+          margin-bottom: 15px;
+          font-size: 18px;
+          color: #2b2b2b;
+          line-height: 30px;
+
+          a {
+            color: #1287b8;
+            text-decoration: none;
+            
+            &:hover {
+              color: #db4111;
+            }
+          }
+        }
+
+        .date {
+          margin: 0;
+          font-weight: 600;
+          font-size: 12px;
+
+          a {
+            color: #404040;
+
+            &:hover {
+              color: #B62B02;
+            }
+          }
+
+          .timestamp {
+            font-family: $type-datetime;
+            font-size: 13px;
+            color: #555555;
+            font-weight: 500;
+          }
+        }
+
+        .byline {
+          font-size: .9em;
+          font-weight: 600;
+          margin: 0;
+          float: left;
+          clear: left;
+        }
+
+        .more-link {
+          text-align: right;
+          
+          a {
+            color: #b62b00;
+            font-size: 0.9em;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .row-header {
+      background: url("/sites/all/themes/capitalny/images/sprites.png") no-repeat;
+      background-position: 0 -1298px;
+      height: 2px;
+    }
+
+    .item-list .pager {
+      margin-top: 30px;
+      list-style-type: none;
+      text-align: left;
+      font-size: .9em;
+      text-transform: uppercase;
+      clear: both;
+
+      li {
+        color: #8D9195;
+        font-weight: 600;
+        display: inline;
+        margin: 0 1px 0 0;
+        padding: 0px;
+
+        a {
+          margin: 0 1px 0 0;
+          padding: 0 3px;
+          color: #8D9195;
+          display: inline-block;
+          border: 2px solid #fff;
+        }
+
+        &.pager-current, &.active, & a:hover {
+          border: 2px solid #b62b00;
+          color: #b62b00;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@font-face {
+  font-family: MetaSerifWeb-Light;
+  src: font-url('MetaSerifWeb-Light.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Light;
+  src: font-url('MetaSerifWeb-Light.woff') format("woff");
+}
+
+@font-face {
+  font-family: MetaSerifWeb-LightItalic;
+  src: font-url('MetaSerifWeb-LightItalic.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-LightItalic;
+  src: font-url('MetaSerifWeb-LightItalic.woff') format("woff");
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Book;
+  src: font-url('MetaSerifWeb-Book.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Book;
+  src: font-url('MetaSerifWeb-Book.woff') format("woff");
+}
+
+@font-face {
+  font-family: MetaSerifWeb-BookItalic;
+  src: font-url('MetaSerifWeb-BookItalic.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-BookItalic;
+  src: font-url('MetaSerifWeb-BookItalic.woff') format("woff");
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Bold;
+  src: font-url('MetaSerifWeb-Bold.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Bold;
+  src: font-url('MetaSerifWeb-Bold.woff') format("woff");
+}
+
+@font-face {
+  font-family: MetaSerifWeb-BoldItalic;
+  src: font-url('MetaSerifWeb-BoldItalic.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-BoldItalic;
+  src: font-url('MetaSerifWeb-BoldItalic.woff') format("woff");
+}
+
+
+@font-face {
+  font-family: MetaSerifWeb-Bold;
+  src: font-url('MetaSerifWeb-Bold.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Bold;
+  src: font-url('MetaSerifWeb-Bold.woff') format("woff");
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Medium;
+  src: font-url('MetaSerifWeb-Medium.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Medium;
+  src: font-url('MetaSerifWeb-Medium.woff') format("woff");
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Medium-Italic;
+  src: font-url('MetaSerifWeb-MediumItalic.eot');
+}
+
+@font-face {
+  font-family: MetaSerifWeb-Medium-Italic;
+  src: font-url('MetaSerifWeb-MediumItalic.woff') format("woff");
+}
+
+$type-whiteboard: MetaSerifWeb-Light, Georgia, serif;
+$type-whiteboard-italic: MetaSerifWeb-LightItalic, Georgia, serif;
+$type-body: MetaSerifWeb-Book, Georgia, serif;
+$type-body-italic: MetaSerifWeb-BookItalic, Georgia, serif;
+$type-body-bold: MetaSerifWeb-Bold, Georgia, serif;
+$type-body-bold-italic: MetaSerifWeb-BoldItalic, Georgia, serif;
+$type-body-link: MetaSerifWeb-Medium, Georgia, serif;
+$type-pullquote: MetaSerifWeb-Medium-Italic, Georgia, serif;
+$type-datetime: "Arial Narrow", Arial, Helvetica, sans-serif;
+$type-vertical: "Whitney A", "Whitney B", Helvetica, Arial, sans-serif;
+$type-emphasis: "Whitney A", "Whitney B", Helvetica, Arial, sans-serif;
+$type-headline: $type-vertical;
+$type-byline: $type-vertical;
+$type-comment-count: Arial, Helvetica, sans-serif;
+$type-login: $type-comment-count;
+$type-most-read-title: $type-vertical;
+$type-most-read-headline: $type-vertical;
+$type-most-read-numeral: $type-vertical;
+$type-sponsor-block: $type-datetime;
+$type-promo-title: $type-comment-count;
+$type-promo-more: $type-comment-count;
+$type-promo-bullet: $type-comment-count;
+$type-advertisement: $type-comment-count;
+$type-tags: $type-comment-count;
+$type-author: $type-comment-count;
+$type-author-name: $type-comment-count;
+$type-follow-author: $type-comment-count;
+$type-follow-text: $type-comment-count;
+$type-more-section-name: $type-comment-count;
+$type-more-headline: $type-comment-count;
+$type-around-web-headline: $type-vertical;
+$type-comment-body: $type-comment-count;

@@ -1,0 +1,54 @@
+@import "compass/reset";
+
+@mixin width-size-px-to-per($target, $context) {
+  width: ($target/$context) * 100%;
+}
+
+@mixin font-size-px-to-ems($target, $context) {
+  font-size: ($target/$context) * 1em;
+}
+
+body {
+  background-color: #dcdbd9;
+  color: #2c2c2c;
+  // this 100% means 16px on most browsers
+  font: normal 100% Cambria, Georgia, serif;
+}
+
+h1 {
+  // using 16px as the context, which is the body with font-size 100% being 16px on most browsers
+  @include font-size-px-to-ems(24, 16);
+  font-style: italic;
+  font-weight: normal;
+  background: #eff;
+
+  a {
+    color: #747474;
+    font: bold Calibri, Optima, Arial, sans-serif;
+    // using 24px from the h1, which is the new context for this a
+    @include font-size-px-to-ems(11, 24);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+#page {
+  margin: 36px auto;
+  // this was originally 960px in mockup
+  width: 90%;
+  .blog {
+    margin: 0 auto 53px;
+    @include width-size-px-to-per(900, 960);
+  }
+  .main {
+    float: left;
+    @include width-size-px-to-per(566, 900);
+    background: #ccc;
+  }
+  .other {
+    float: right;
+    @include width-size-px-to-per(331, 900);
+    background: #bbb;
+  }
+}
