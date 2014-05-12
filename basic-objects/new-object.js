@@ -11,7 +11,7 @@ var testModule = (function() {
   var counter = 0;
   return {
 
-    incrementConter: function() {
+    incrementCounter: function() {
       return counter++;
     },
 
@@ -22,3 +22,8 @@ var testModule = (function() {
 
   };
 })();
+
+//console.log(testModule);
+console.log(testModule.incrementCounter());
+console.log(testModule.incrementCounter());
+console.log(testModule.incrementCounter());
