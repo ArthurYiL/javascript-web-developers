@@ -41,3 +41,5 @@ function hadError(err, res) {
   console.error(err);
   res.end('Server Error');
 }
+
+console.log('Server running at http://localhost:3000/');
