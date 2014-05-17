@@ -21,6 +21,7 @@ channel.on('join', function(id, client) {
 var server = net.createServer(function(client) {
     var id = client.remoteAddress + ':' + client.remotePort;
 
+    // when this code runs the connection has been established
     // emitting here because 'connect' event is not firing below
     channel.emit('join', id, client);
 
