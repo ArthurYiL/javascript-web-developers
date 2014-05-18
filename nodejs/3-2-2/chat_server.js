@@ -30,6 +30,15 @@ channel.on('leave', function(id) {
     channel.emit('broadcast', id, id + " has left the chat.\n");
 });
 
+channel.on('shutdown', function() {
+    channel.emit('broadcast', '', "Chat has shutdown.\n");
+    channel.removeAllListeners('broadcast');
+});
+
+channel.on('error', function(err) {
+    console.log('ERROR: ' + err.message);
+});
+
 var server = net.createServer(function(client) {
     var id = client.remoteAddress + ':' + client.remotePort;
 
@@ -44,6 +53,15 @@ var server = net.createServer(function(client) {
 
     client.on('data', function(data) {
         data = data.toString();
+
+        if (data == "shutdown\r\n") {
+            channel.emit('shutdown');
+        }
+
+        if (data == "bad\r\n") {
+            channel.emit('error', new Error('Something is wrong.'));
+        }
+
         channel.emit('broadcast', id, data);
     });
 
