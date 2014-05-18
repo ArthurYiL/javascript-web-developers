@@ -8,13 +8,20 @@ channel.subscriptions = {};
 channel.on('join', function(id, client) {
     // this refers to the channel
     // each client is a socket passed to the callback in net.createServer
+    // 'join' runs once for each client connected
     console.log('client joined ' + id);
     this.clients[id] = client;
+
     this.subscriptions[id] = function(senderId, message) {
+        console.log('running broadcast for id ' + id + ' and senderId ' + senderId);
         if (id != senderId) {
             this.clients[id].write(senderId + ' said: ' + message);
         }
     }
+
+    // When a client joins the channel, a broadcast listener is registered for the client,
+    // which means there are many broadcasts listeners, one per client.
+    // On broadcast, from any client, all the callbacks in this.subscriptions run.
     this.on('broadcast', this.subscriptions[id]);
 });
 
@@ -30,6 +37,7 @@ var server = net.createServer(function(client) {
     // emitting here because 'connect' event is not firing below
     channel.emit('join', id, client);
 
+    // so, there's no need to emit 'join' like this
     //client.on('connect', function() {
     //    channel.emit('join', id, client);
     //});
