@@ -12,14 +12,14 @@ http.createServer(function(req, res) {
 
 function getTitles(page, res) {
   fs.readFile('./titles.json', function(err, data) {
-    if (err) hadError(err, res);
+    if (err) return hadError(err, res);
     getTemplate(JSON.parse(data.toString()), page, res);
   });
 }
 
 function getTemplate(titles, page, res) {
   fs.readFile('./template.html', function(err, data) {
-    if (err) throw er; // alternative throwing error
+    if (err) throw (err); // alternative throwing error
     formatHtml(titles, data.toString(), page, res);
   });
 }
