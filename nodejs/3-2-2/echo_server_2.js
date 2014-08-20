@@ -3,6 +3,7 @@ var net = require('net');
 var server = net.createServer(socketListener);
 
 function socketListener(socket) {
+    console.log(this);
     // this in this context is the server
     socket.on('data', sendEcho);
 }
