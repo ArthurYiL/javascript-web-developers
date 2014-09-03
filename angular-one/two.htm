@@ -6,15 +6,11 @@
         <script src="src/app.js"></script>
     </head>
     <body>
-      <h1>File to test Angular.js while watching and reloading with Grunt</h1>
+      <h1>File Two</h1>
 
-      <div class="container" ng-init="customers=[{name: 'Dave Michaels', city: 'Phoenix'}, {name: 'Mike Smith', city: 'New York'}, {name: 'Jane Doe', city: 'San Francisco'}]">
+      <div class="container">
         Name: <input type="text" ng-model="name" /> {{ name }}
       </div>
-      
-      <ul>
-        <li ng-repeat="cust in customers | filter: name | orderBy:'city'">{{ $index + 1 }}: {{ cust.name }} - {{ cust.city | uppercase }}</li>
-      </ul>
 
       <p>This is being served by <a href="https://www.npmjs.org/package/http-server">http-server</a> (installed globally)</p>
 
