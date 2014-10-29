@@ -4,7 +4,7 @@ function SimpleController($scope) {
   $scope.customers = [
     {name: 'Yuk Michaels', city: 'Phoenix'}, 
     {name: 'Elijah Smith', city: 'New York'}, 
-    {name: 'Jane Doe', city: 'San Francisco'}
+    {name: 'Jane Doe', city: 'San Francisco'},
+    {name: 'Kike Lopez', city: 'Chicago'}
   ];
 }
-

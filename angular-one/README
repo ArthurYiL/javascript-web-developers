@@ -1,0 +1,7 @@
+AngularJS Basics
+
+Use two shell windows:
+
+1. Run 'grunt' to start watching this directory.
+
+2. Run 'http-server' to serve files from this directory.

@@ -25,10 +25,19 @@ var demoApp = angular.module('demoApp', []);
 var controllers = {};
 controllers.SimpleController = function ($scope) {
   $scope.color = 'orange';
+
   $scope.customers = [
     {name: 'Yuk Michaels', city: 'Phoenix'}, 
     {name: 'Elijah Smith', city: 'New York'}, 
     {name: 'Jane Doe', city: 'San Francisco'}
   ];
+
+  $scope.addCustomer = function() {
+    $scope.customers.push({
+      name: $scope.newCustomer.name, 
+      city: $scope.newCustomer.city
+    });
+  }
+
 };
 demoApp.controller(controllers);
