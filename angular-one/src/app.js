@@ -1,1 +1,1 @@
-//console.log('ZZ');
+console.log('ZZ');
