@@ -1,0 +1,18 @@
+{
+  "name": "angello",
+  "version": "0.0.1",
+  "description": "Angello Angular Application",
+  "main": "app.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexis Bellido",
+  "license": "ISC"
+}
