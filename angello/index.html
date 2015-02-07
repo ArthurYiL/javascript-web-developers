@@ -34,11 +34,39 @@
                 <textarea id="inputDescription" placeholder="Description" rows="3" ng-model="currentStory.description"></textarea>
               </div>
             </div>
+            <div class="control-group">
+              <label class="control-label" for="inputReporter">Reporter</label>
+              <div class="controls">
+                <input type="text" id="inputReporter" placeholder="Reporter" ng-model="currentStory.reporter">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputAssignee">Assignee</label>
+              <div class="controls">
+                <input type="text" id="inputAssignee" placeholder="Assignee" ng-model="currentStory.assignee">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputStatus">Status</label>
+              <div class="controls">
+                <select id="inputStatus"
+                  ng-model="currentStatus"
+                  ng-options="s.name for s in statuses"></select>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputType">Type</label>
+              <div class="controls">
+                <select id="inputType"
+                  ng-model="currentType"
+                  ng-options="t.name for t in types"></select>
+              </div>
+            </div>
+
           </form>
           <p class="clear"><a ng-click="createStory()">Create story</a></p>
           <p class="clear"><a ng-click="createStoryWithData(currentStory)">Create story with model data</a></p>
-        </div>
-
+          </div>
 
       </div>
 
