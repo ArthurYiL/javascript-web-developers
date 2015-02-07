@@ -12,6 +12,16 @@
   padding: 15px;
 }
 
+.story {
+  border: 1px solid blue;
+  margin: 10px;
+  padding: 5px;
+}
+
+.clear {
+  clear: both;
+}
+
 .footer {
   padding-top: 30px;
   clear: both;

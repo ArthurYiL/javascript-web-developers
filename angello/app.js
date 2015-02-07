@@ -8,6 +8,24 @@ myModule.controller('MainCtrl', function($scope) {
     $scope.currentStory = story
   };
 
+  $scope.createStory = function() {
+    $scope.stories.push({
+      title: 'New Story',
+      description: 'Description pending'
+    });
+  };
+
+  $scope.createStoryWithData = function(story) {
+    $scope.stories.push({
+      title: story.title,
+      description: story.description
+    });
+  };
+
+  $scope.consoleLog = function() {
+    console.log('Testing');
+  };
+
   $scope.stories = [
     {title: 'Story Zero', description: 'Description pending 00.'},
     {title: 'Story 01', description: 'Description pending 01.'},

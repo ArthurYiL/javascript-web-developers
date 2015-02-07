@@ -17,6 +17,8 @@
           </div>
         </div>
 
+        <p><button ng-click="consoleLog()">Test button</button></p>
+
         <div class="span6 body-content">
           <h2>Story</h2>
           <form class="form-horizontal">
@@ -33,7 +35,10 @@
               </div>
             </div>
           </form>
+          <p class="clear"><a ng-click="createStory()">Create story</a></p>
+          <p class="clear"><a ng-click="createStoryWithData(currentStory)">Create story with model data</a></p>
         </div>
+
 
       </div>
 
