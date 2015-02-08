@@ -1,6 +1,6 @@
 var myModule = angular.module('Angello', []);
 
-myModule.controller('MainCtrl', function($scope) {
+myModule.controller('MainCtrl', function($scope, angelloModel, angelloHelper) {
 
   $scope.currentStory;
 
@@ -41,40 +41,16 @@ myModule.controller('MainCtrl', function($scope) {
     console.log($scope.statusesIndex);
   };
 
-  $scope.stories = [
-    {
-      title: 'Story Zero', 
-      description: 'Description pending 00.',
-      criteria: 'Criteria pending 00',
-      status: 'To Do',
-      type: 'Feature',
-      reporter: 'Luke Skywalker',
-      assignee: 'Brian Ford'
-    },
-    {title: 'Story 01', description: 'Description pending 01.'},
-    {title: 'Story 02', description: 'Description pending 02.'},
-    {title: 'Story 03', description: 'Description pending 03.'},
-    {title: 'Story 04', description: 'Description pending 04.'},
-    {title: 'Story Five', description: 'Description pending 05.'}
-  ];
+  $scope.stories = angelloModel.getStories();
+  $scope.statuses = angelloModel.getStatuses();
+  $scope.types = angelloModel.getTypes();
 
-  $scope.statuses = [
-    {name:'Back Log'},
-    {name:'To Do'},
-    {name:'In Progress'},
-    {name:'Code Review'},
-    {name:'QA Review'},
-    {name:'Verified'},
-    {name:'Done'}
-  ];
+  $scope.typesIndex = angelloHelper.buildIndex($scope.types, 'name');
+  $scope.statusesIndex = angelloHelper.buildIndex($scope.statuses, 'name');
 
-  $scope.types = [
-    {name:'Feature'},
-    {name:'Enhancement'},
-    {name:'Bug'},
-    {name:'Spike'}
-  ];
+});
 
+myModule.factory('angelloHelper', function() {
   var buildIndex = function(source, property) {
     var tempArray = [];
     for (var i = 0, len = source.length; i < len; i++) {
@@ -83,7 +59,59 @@ myModule.controller('MainCtrl', function($scope) {
     return tempArray;
   };
 
-  $scope.typesIndex = buildIndex($scope.types, 'name');
-  $scope.statusesIndex = buildIndex($scope.statuses, 'name');
+  return {
+    buildIndex: buildIndex
+  };
 
+});
+
+myModule.factory('angelloModel', function() {
+  var getStatuses = function() {
+    var tempArray = [
+      {name:'Back Log'},
+      {name:'To Do'},
+      {name:'In Progress'},
+      {name:'Code Review'},
+      {name:'QA Review'},
+      {name:'Verified'},
+      {name:'Done'}
+    ];
+    return tempArray;
+  };
+
+  var getTypes = function() {
+    var tempArray = [
+      {name:'Feature'},
+      {name:'Enhancement'},
+      {name:'Bug'},
+      {name:'Spike'}
+    ];
+    return tempArray;
+  };
+
+  var getStories = function() {
+    var tempArray = [
+      {
+        title: 'Story Zero', 
+        description: 'Description pending 00.',
+        criteria: 'Criteria pending 00',
+        status: 'To Do',
+        type: 'Feature',
+        reporter: 'Luke Skywalker',
+        assignee: 'Brian Ford'
+      },
+      {title: 'Story 01', description: 'Description pending 01.'},
+      {title: 'Story 02', description: 'Description pending 02.'},
+      {title: 'Story 03', description: 'Description pending 03.'},
+      {title: 'Story 04', description: 'Description pending 04.'},
+      {title: 'Story Five', description: 'Description pending 05.'}
+    ];
+    return tempArray;
+  };
+
+  return {
+    getStatuses: getStatuses,
+    getTypes: getTypes,
+    getStories: getStories
+  };
 });
