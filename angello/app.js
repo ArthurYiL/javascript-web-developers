@@ -11,8 +11,14 @@ myModule.controller('MainCtrl', function($scope) {
   };
 
   $scope.setCurrentStatus = function(status) {
-    if (typeof $scope.currentStory.status !== 'undefined') {
+    if (typeof $scope.currentStory !== 'undefined') {
       $scope.currentStory.status = status.name;
+    }
+  };
+
+  $scope.setCurrentType = function(type) {
+    if (typeof $scope.currentStory !== 'undefined') {
+      $scope.currentStory.type = type.name;
     }
   };
 

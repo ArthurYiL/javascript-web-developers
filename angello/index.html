@@ -15,6 +15,7 @@
             <h4>{{ story.title }}</h4>
             <p>{{ story.description }}</p>
             <p>{{ story.status }}</p>
+            <p>{{ story.type }}</p>
           </div>
         </div>
 
@@ -61,6 +62,7 @@
               <div class="controls">
                 <select id="inputType"
                   ng-model="currentType"
+                  ng-change="setCurrentType(currentType)"
                   ng-options="t.name for t in types"></select>
               </div>
             </div>
