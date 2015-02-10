@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="Angello.Storyboard">
+    <head>
+        <meta charset="utf-8">
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="storyboard.js"></script>
+    </head>
+
+    <body>
+
+      <h1>Storyboard</h1>
+
+      <div ng-controller="StoryboardCtrl as storyboard">
+        <ul ng-repeat="status in storyboard.statuses">
+          <h3>{{ status.name }}</h3>
+          <li ng-repeat="story in storyboard.stories | filter: {status:status.name}">
+            <p class="title">{{ story.title }}</p>
+            <p class="type">{{ story.type }}</p>
+            <p class="description">{{ story.description }}</p>
+          </li>
+        </ul>
+      </div>
+
+    </body>
+
+</html>
