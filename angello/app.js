@@ -2,51 +2,53 @@ var myModule = angular.module('Angello', []);
 
 myModule.controller('MainCtrl', function($scope, angelloModel, angelloHelper) {
 
-  $scope.currentStory;
+  this.currentStory;
 
-  $scope.setCurrentStory = function(story) {
-    $scope.currentStory = story;
-    $scope.currentStatus = $scope.statusesIndex[story.status];
-    $scope.currentType = $scope.typesIndex[story.type];
+  this.values = [1, 3, 5];
+
+  this.setCurrentStory = function(story) {
+    this.currentStory = story;
+    this.currentStatus = this.statusesIndex[story.status];
+    this.currentType = this.typesIndex[story.type];
   };
 
-  $scope.setCurrentStatus = function(status) {
-    if (typeof $scope.currentStory !== 'undefined') {
-      $scope.currentStory.status = status.name;
+  this.setCurrentStatus = function(status) {
+    if (typeof this.currentStory !== 'undefined') {
+      this.currentStory.status = status.name;
     }
   };
 
-  $scope.setCurrentType = function(type) {
-    if (typeof $scope.currentStory !== 'undefined') {
-      $scope.currentStory.type = type.name;
+  this.setCurrentType = function(type) {
+    if (typeof this.currentStory !== 'undefined') {
+      this.currentStory.type = type.name;
     }
   };
 
-  $scope.createStory = function() {
-    $scope.stories.push({
+  this.createStory = function() {
+    this.stories.push({
       title: 'New Story',
       description: 'Description pending'
     });
   };
 
-  $scope.createStoryWithData = function(story) {
-    $scope.stories.push({
+  this.createStoryWithData = function(story) {
+    this.stories.push({
       title: story.title,
       description: story.description
     });
   };
 
-  $scope.consoleLog = function() {
+  this.consoleLog = function() {
     console.log('Testing');
-    console.log($scope.statusesIndex);
+    console.log(this.statusesIndex);
   };
 
-  $scope.stories = angelloModel.getStories();
-  $scope.statuses = angelloModel.getStatuses();
-  $scope.types = angelloModel.getTypes();
+  this.stories = angelloModel.getStories();
+  this.statuses = angelloModel.getStatuses();
+  this.types = angelloModel.getTypes();
 
-  $scope.typesIndex = angelloHelper.buildIndex($scope.types, 'name');
-  $scope.statusesIndex = angelloHelper.buildIndex($scope.statuses, 'name');
+  this.typesIndex = angelloHelper.buildIndex(this.types, 'name');
+  this.statusesIndex = angelloHelper.buildIndex(this.statuses, 'name');
 
 });
 

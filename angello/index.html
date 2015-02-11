@@ -7,11 +7,14 @@
         <link type="text/css" rel="stylesheet" href="app.css" media="all" />
     </head>
     <body>
-      <div ng-controller="MainCtrl">
+      <div class="main-controller" ng-controller="MainCtrl as main">
+
+        <h2>Coming from $scope.values in MainCtrl</h2>
+        <p ng-repeat="value in main.values">{{ value }}</p>
 
         <div class="span4 sidebar-content">
           <h2>Stories</h2>
-          <div class="story" ng-repeat="story in stories" ng-click="setCurrentStory(story)">
+          <div class="story" ng-repeat="story in main.stories" ng-click="main.setCurrentStory(story)">
             <h4>{{ story.title }}</h4>
             <p>{{ story.description }}</p>
             <p>{{ story.status }}</p>
@@ -19,7 +22,7 @@
           </div>
         </div>
 
-        <p><button ng-click="consoleLog()">Test button</button></p>
+        <p><button ng-click="main.consoleLog()">Test button</button></p>
 
         <div class="span6 body-content">
           <h2>Story</h2>
@@ -27,49 +30,49 @@
             <div class="control-group">
               <label class="control-label" for="inputTitle">Title</label>
               <div class="controls">
-                <input type="text" placeholder="Title" ng-model="currentStory.title">
+                <input type="text" placeholder="Title" ng-model="main.currentStory.title">
               </div>
               </div>
             <div class="control-group">
               <label class="control-label" for="inputDescription">Description</label>
               <div class="controls">
-                <textarea id="inputDescription" placeholder="Description" rows="3" ng-model="currentStory.description"></textarea>
+                <textarea id="inputDescription" placeholder="Description" rows="3" ng-model="main.currentStory.description"></textarea>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="inputReporter">Reporter</label>
               <div class="controls">
-                <input type="text" id="inputReporter" placeholder="Reporter" ng-model="currentStory.reporter">
+                <input type="text" id="inputReporter" placeholder="Reporter" ng-model="main.currentStory.reporter">
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="inputAssignee">Assignee</label>
               <div class="controls">
-                <input type="text" id="inputAssignee" placeholder="Assignee" ng-model="currentStory.assignee">
+                <input type="text" id="inputAssignee" placeholder="Assignee" ng-model="main.currentStory.assignee">
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="inputStatus">Status</label>
               <div class="controls">
                 <select id="inputStatus"
-                  ng-model="currentStatus"
-                  ng-change="setCurrentStatus(currentStatus)"
-                  ng-options="s.name for s in statuses"></select>
+                  ng-model="main.currentStatus"
+                  ng-change="main.setCurrentStatus(main.currentStatus)"
+                  ng-options="s.name for s in main.statuses"></select>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="inputType">Type</label>
               <div class="controls">
                 <select id="inputType"
-                  ng-model="currentType"
-                  ng-change="setCurrentType(currentType)"
-                  ng-options="t.name for t in types"></select>
+                  ng-model="main.currentType"
+                  ng-change="main.setCurrentType(main.currentType)"
+                  ng-options="t.name for t in main.types"></select>
               </div>
             </div>
 
           </form>
-          <p class="clear"><a ng-click="createStory()">Create story</a></p>
-          <p class="clear"><a ng-click="createStoryWithData(currentStory)">Create story with model data</a></p>
+          <p class="clear"><a ng-click="main.createStory()">Create story</a></p>
+          <p class="clear"><a ng-click="main.createStoryWithData(main.currentStory)">Create story with model data</a></p>
           </div>
 
       </div>

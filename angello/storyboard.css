@@ -1,0 +1,22 @@
+#details-form {
+  border: 1px solid red;
+  margin-right: 10px;
+  float: right;
+  width: 400px;
+  padding: 10px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+li {
+  border: 2px solid orange;
+  padding: 5px;
+  margin-right: 500px;
+  margin-bottom: 10px;
+}
