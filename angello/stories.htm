@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="Angello.Storyboard">
     <head>
-        <meta charset="utf-8">
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="storyboard.js"></script>
+      <meta charset="utf-8">
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/underscore/underscore-min.js"></script>
+      <script src="storyboard.js"></script>
+      <link type="text/css" rel="stylesheet" href="storyboard.css" media="all" />
     </head>
 
     <body>
@@ -11,14 +13,47 @@
       <h1>Storyboard</h1>
 
       <div ng-controller="StoryboardCtrl as storyboard">
+
+        <form name="storyboard.detailsForm" id="details-form" novalidate="">
+          <h2>Form here</h2>
+          <label>* Title
+            <input type="text" id="inputTitle" name="inputTitle"
+              ng-model="storyboard.editedStory.title"
+              ng-required="true" 
+              ng-minlength="3"
+              ng-maxlength="30">
+          </label>
+          <label>* Reporter
+            <select ng-model="storyboard.editedStory.reporter"
+              ng-change="storyboard.showUserId(storyboard.editedStory.reporter)"
+              ng-required="true" 
+              ng-options="user.id as user.name for user in storyboard.users">
+            </select>
+          </label>
+          <div class="buttons" ng-if="storyboard.currentStory">
+            <button ng-click="storyboard.updateCancel()">Cancel</button>
+            <button ng-click="storyboard.updateStory()">Update</button>
+          </div>
+          <div class="buttons" ng-if="!storyboard.currentStory">
+            <button
+              ng-disabled="!storyboard.detailsForm.$valid"
+              ng-click="storyboard.createStory()">Create</button>
+          </div>
+        </form>
+
         <ul ng-repeat="status in storyboard.statuses">
           <h3>{{ status.name }}</h3>
-          <li ng-repeat="story in storyboard.stories | filter: {status:status.name}">
-            <p class="title">{{ story.title }}</p>
+          <li ng-repeat="story in storyboard.stories | filter: {status:status.name}"
+            ng-click="storyboard.setCurrentStory(story)">
+            <p class="title">{{ story.id }}: {{ story.title }}</p>
             <p class="type">{{ story.type }}</p>
+
+            <!-- We can use an index function here to show the reporter name instead of just the id -->
+            <p class="reporter">Reporter user id: {{ story.reporter }}</p>
             <p class="description">{{ story.description }}</p>
           </li>
         </ul>
+
       </div>
 
     </body>

@@ -3,9 +3,59 @@ var myModule = angular.module('Angello.Storyboard', [])
 
     var storyboard = this;
 
+    storyboard.currentStory = null;
+    storyboard.editedStory = {};
+
+    storyboard.setCurrentStory = function(story) {
+      storyboard.currentStory = story;
+      storyboard.editedStory = angular.copy(storyboard.currentStory);
+    };
+
+    storyboard.resetForm = function () {
+      storyboard.currentStory = null;
+      storyboard.editedStory = {};
+      storyboard.detailsForm.$setPristine();
+      storyboard.detailsForm.$setUntouched();
+    };
+
+
+    // TODO use underscore to remove item from array when deleting story
+    //var arr = [{id:1,name:'a'},{id:2,name:'b'},{id:3,name:'c'}];
+    //var filtered = _.filter(arr, function(item) {
+    //  return item.id !== 3
+    //});
+
+    function ID() {
+      return '_' + Math.random().toString(36).substr(2, 9);
+    }
+
+    storyboard.createStory = function() {
+      console.log('Creating story...');
+      var newStory = angular.copy(storyboard.editedStory);
+      newStory.id = ID();
+      newStory.status = 'To Do';
+      storyboard.stories.push(newStory);
+      storyboard.resetForm();
+    };
+
+    storyboard.updateStory = function() {
+      var fields = ['title', 'description', 'reporter', 'type', 'status'];
+
+      fields.forEach(function(field) {
+        storyboard.currentStory[field] = storyboard.editedStory[field];
+      });
+
+      storyboard.resetForm();
+    };
+
+    storyboard.updateCancel = function() {
+      storyboard.resetForm();
+    };
+
     storyboard.stories = [
       {
         id: 1,
+        reporter: 1,
         title: 'First Story',
         type: 'Spike',
         description: 'This is a test',
@@ -13,6 +63,7 @@ var myModule = angular.module('Angello.Storyboard', [])
       },
       {
         id: 2,
+        reporter: 2,
         title: 'Second Story',
         type: 'Enhancement',
         description: 'Testing something',
@@ -20,6 +71,7 @@ var myModule = angular.module('Angello.Storyboard', [])
       },
       {
         id: 3,
+        reporter: 3,
         title: 'Third Story',
         type: 'Enhancement',
         description: 'A Third Test',
@@ -27,11 +79,23 @@ var myModule = angular.module('Angello.Storyboard', [])
       },
       {
         id: 4,
+        reporter: 2,
         title: 'New Story',
         type: 'Enhancement',
         description: 'More Test',
         status: 'Code Review'
       }
+    ];
+
+    storyboard.showUserId = function(id) {
+      console.log('user.id: ' + id);
+    };
+
+    storyboard.users = [
+      {id: 1, name: 'Mike-1'},
+      {id: 2, name: 'Tom-2'},
+      {id: 3, name: 'Albert-3'},
+      {id: 4, name: 'John-4'}
     ];
 
     storyboard.statuses = [
