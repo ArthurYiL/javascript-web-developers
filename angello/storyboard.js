@@ -19,12 +19,6 @@ var myModule = angular.module('Angello.Storyboard', [])
     };
 
 
-    // TODO use underscore to remove item from array when deleting story
-    //var arr = [{id:1,name:'a'},{id:2,name:'b'},{id:3,name:'c'}];
-    //var filtered = _.filter(arr, function(item) {
-    //  return item.id !== 3
-    //});
-
     function ID() {
       return '_' + Math.random().toString(36).substr(2, 9);
     }
@@ -36,6 +30,13 @@ var myModule = angular.module('Angello.Storyboard', [])
       newStory.status = 'To Do';
       storyboard.stories.push(newStory);
       storyboard.resetForm();
+    };
+
+    storyboard.deleteStory = function(storyId) {
+      // using underscore to remove item from stories array
+      storyboard.stories = _.filter(storyboard.stories, function(item) {
+        return item.id !== storyId;
+      });
     };
 
     storyboard.updateStory = function() {

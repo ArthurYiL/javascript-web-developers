@@ -51,6 +51,7 @@
             <!-- We can use an index function here to show the reporter name instead of just the id -->
             <p class="reporter">Reporter user id: {{ story.reporter }}</p>
             <p class="description">{{ story.description }}</p>
+            <button ng-click="storyboard.deleteStory(story.id)">Delete</button>
           </li>
         </ul>
 
