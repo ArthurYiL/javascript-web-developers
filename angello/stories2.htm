@@ -3,6 +3,8 @@
     <head>
       <meta charset="utf-8">
 
+      <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+
       <script src="bower_components/angular/angular.min.js"></script>
       <script src="bower_components/underscore/underscore-min.js"></script>
       <script src="storyboard2.js"></script>
@@ -15,6 +17,8 @@
       <h1>Storyboard</h1>
 
       <div ng-controller="StoryboardCtrl as storyboard">
+
+      <h2>Endpoint URI: {{ storyboard.endpoint_uri }}</h2>
 
         <form name="storyboard.detailsForm" id="details-form" novalidate="">
           <h2>Form here</h2>

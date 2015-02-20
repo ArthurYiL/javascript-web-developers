@@ -1,7 +1,9 @@
 var myModule = angular.module('Angello.Storyboard', [])
-  .controller('StoryboardCtrl', function(STORY_STATUSES) {
+  .controller('StoryboardCtrl', function(STORY_STATUSES, ENDPOINT_URI) {
 
     var storyboard = this;
+
+    storyboard.endpoint_uri = ENDPOINT_URI;
 
     storyboard.currentStory = null;
     storyboard.editedStory = {};
@@ -109,3 +111,5 @@ myModule.value('STORY_STATUSES', [
   {name: 'Enhancement'},
   {name: 'Code Review'}
 ]);
+
+myModule.constant('ENDPOINT_URI', 'http://api.example.com/');
