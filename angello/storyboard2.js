@@ -1,5 +1,5 @@
 var myModule = angular.module('Angello.Storyboard', [])
-  .controller('StoryboardCtrl', function(STORY_STATUSES, ENDPOINT_URI) {
+  .controller('StoryboardCtrl', function(STORY_STATUSES, ENDPOINT_URI, loadingService) {
 
     var storyboard = this;
 
@@ -18,8 +18,8 @@ var myModule = angular.module('Angello.Storyboard', [])
       storyboard.editedStory = {};
       storyboard.detailsForm.$setPristine();
       storyboard.detailsForm.$setUntouched();
+      loadingService.setLoading();
     };
-
 
     function ID() {
       return '_' + Math.random().toString(36).substr(2, 9);
@@ -113,3 +113,10 @@ myModule.value('STORY_STATUSES', [
 ]);
 
 myModule.constant('ENDPOINT_URI', 'http://api.example.com/');
+
+myModule.service('loadingService', function() {
+  var service = this;
+  service.setLoading = function() {
+    console.log('doing something running loadingService.setLoading');
+  };
+});
