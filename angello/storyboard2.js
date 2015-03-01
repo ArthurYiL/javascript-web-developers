@@ -1,5 +1,5 @@
 var myModule = angular.module('Angello.Storyboard', [])
-  .controller('StoryboardCtrl', function(STORY_STATUSES, ENDPOINT_URI, loadingService) {
+  .controller('StoryboardCtrl', function(STORY_STATUSES, ENDPOINT_URI, loadingService, StoriesModel) {
 
     var storyboard = this;
 
@@ -19,6 +19,14 @@ var myModule = angular.module('Angello.Storyboard', [])
       storyboard.detailsForm.$setPristine();
       storyboard.detailsForm.$setUntouched();
       loadingService.setLoading();
+      StoriesModel.test();
+
+      StoriesModel.all().
+        then(function(result) {
+          console.log('test then $http.get');
+          console.log(result.data);
+        });
+
     };
 
     function ID() {
@@ -112,11 +120,34 @@ myModule.value('STORY_STATUSES', [
   {name: 'Code Review'}
 ]);
 
-myModule.constant('ENDPOINT_URI', 'http://api.example.com/');
+myModule.constant('ENDPOINT_URI', 'https://angello123.firebaseio.com');
 
 myModule.service('loadingService', function() {
   var service = this;
   service.setLoading = function() {
     console.log('doing something running loadingService.setLoading');
+  };
+});
+
+//myModule.service('StoriesModel', function($http, AuthModel, ENDPOINT_URI) {
+myModule.service('StoriesModel', function($http, ENDPOINT_URI) {
+  var service = this,
+      root = '/clients/', 
+      format = '.json',
+      path = '/stories/';
+
+  var currentUserId = 'alexis';
+
+  function getUrl(postfix) {
+    console.log(ENDPOINT_URI + root + currentUserId + postfix);
+    return ENDPOINT_URI + root + currentUserId + postfix;
+  }
+
+  service.test = function() {
+    console.log('test function from service');
+  };
+
+  service.all = function() {
+    return $http.get(getUrl(path + format));
   };
 });
