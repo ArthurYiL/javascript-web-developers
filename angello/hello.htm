@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="Hello">
     <head>
       <meta charset="utf-8">
       <script src="bower_components/angular/angular.min.js"></script>
       <script src="hello.js"></script>
     </head>
 
-    <body>
-      <input ng-model="name" type="text" placeholder="enter name" />
-      <h1>Hello {{ name }}</h1>
-    </body>
+      <body>
+        <div ng-controller="MyController">
+          <input ng-model="name" type="text" placeholder="enter name" />
+          <h1>Hello, {{ name }}</h1>
+          <h5>{{ clock.now }}</h5>
+        </div>
+        <div ng-controller="MySecondController">
+          <p>Favorite movie is {{ movie }}</p>
+        </div>
+      </body>
 
 </html>
