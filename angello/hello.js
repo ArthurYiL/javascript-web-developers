@@ -18,9 +18,35 @@ function MyController($scope) {
 
 app.controller('MyController', MyController);
 
-app.controller('MySecondController', 
-  ['$scope', function($scope) {
-    $scope.movie = "Duck Tails";
-  }]);
+// The odd syntax with the [] bracket notation is
+// a really nifty feature of AngularJS and will eliminate a lot of dependency headaches. 
+app.controller('MySecondController', ['$scope', function($scope) {
+  $scope.movie = "Duck Tails";
+  $scope.counter = 0;
+
+  $scope.add = function(amount) {
+    $scope.counter += amount;
+  };
+
+  $scope.substract = function(amount) {
+    $scope.counter -= amount;
+  };
+
+  $scope.person = {
+    name: "Tony Stark"
+  };
+
+}]);
+
+app.controller('ParentCtrl', function($scope) {
+  $scope.person = { greeted: false };
+});
+
+app.controller('ChildCtrl', function($scope) {
+  $scope.sayHello = function() {
+    $scope.person.name = "Tony Stark";
+    $scope.person.greeted = true;
+  };
+});
 
 console.log('hello monkey business');

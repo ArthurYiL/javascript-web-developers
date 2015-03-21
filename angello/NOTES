@@ -1,0 +1,6 @@
+It is considered a best-practice to name our controllers [Name]Ctrl in camelcase.
+
+The controller is not the appropriate place to do any DOM manipulation or formatting, data manipulation, or state maintenance beyond holding the model data. It is simply the glue between the view and the $scope model.
+
+It is a best practice to keep our controllers as slim as possible. It’s bad practice to do any DOM interaction or data manipulating inside the controller.
+

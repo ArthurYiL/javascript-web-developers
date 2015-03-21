@@ -7,14 +7,31 @@
     </head>
 
       <body>
+
         <div ng-controller="MyController">
           <input ng-model="name" type="text" placeholder="enter name" />
           <h1>Hello, {{ name }}</h1>
           <h5>{{ clock.now }}</h5>
         </div>
+
         <div ng-controller="MySecondController">
           <p>Favorite movie is {{ movie }}</p>
+          <button ng-click="add(1)">Add</button>
+          <button ng-click="substract(1)">Substract</button>
+          <h4>Current count: {{ counter }}</h4>
+          <h1>{{ person }}</h1>
+          <h4>Hero's name: {{ person.name }}</h4>
         </div>
+
+        <div ng-controller="ParentCtrl">
+          <div ng-controller="ChildCtrl">
+            <p>
+              <a href="#" ng-click="sayHello()">Say hello</a>
+            </p>
+          </div>
+          {{ person }}
+        </div>
+
       </body>
 
 </html>
