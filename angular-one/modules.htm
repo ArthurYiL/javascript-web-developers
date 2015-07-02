@@ -14,7 +14,12 @@
     <body ng-app="myApp">
       <h1>Module test</h1>
       <div>
-        {{ 'World' | greet }}
+        <p>{{ 'World' | greet }}</p>
+        <p>{{ 'Monkey' | aloha }}</p>
+      </div>
+
+      <div ng-controller="MyController">
+        <p>The insect is a {{ insect }}</p>
       </div>
     </body>
 </html>
