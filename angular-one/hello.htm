@@ -8,6 +8,7 @@
 
     <body ng-app="helloApp">
       <p>globalColor: {{ globalColor }}</p>
+      <p>globalAnimal: {{ globalAnimal }}</p>
 
       <div ng-controller="HelloCtrl">
         <p>testing: {{ greeting }} {{ person }}</p>
@@ -21,9 +22,10 @@
             $scope.person = 'World';
           })
           .run(['$rootScope', function($rootScope) {
-            $rootScope.globalColor = "super yellow";
+            $rootScope.globalColor = "super green";
           }])
           .run(function($rootScope) {
+            $rootScope.globalAnimal = "zebra";
             console.log('run block without dependencies');
           });
       </script>
