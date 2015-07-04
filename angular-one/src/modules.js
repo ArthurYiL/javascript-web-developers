@@ -6,12 +6,12 @@ myAppModule.filter('greet', function() {
   }
 });
 
-myAppModule.service('testService', function() {
+myAppModule.service('testService', [function() {
   var service = this;
   service.saySomething = function() {
-    console.log('saying something');
+    console.log('saying something here');
   };
-});
+}]);
 
 myAppModule.service('testRunService', function() {
   var service = this;
@@ -33,13 +33,29 @@ myAppModule.filter('aloha', ['testService', function(testService) {
 
 myAppModule.run(['testRunService', function(testRunService) {
   testRunService.say();
-}])
+}]);
 
 // inject to controller using array
 // see: https://docs.angularjs.org/guide/di 
 myAppModule.controller('MyController', ['$scope', 'testRunService', function($scope, testRunService) {
-  $scope.insect = 'worm';
+  $scope.insect = 'tiny worm';
+
+  $scope.double = function(value) {
+    if (value == undefined) {
+      value = 0;
+    }
+    return value * 2;
+  };
+
   testRunService.sayName($scope.insect);
+
+  // Some jasmine inside this angular controller
+  describe("Some angular stuff", function() {
+    it("says hi", function() {
+      expect(helloWorld()).toEqual("hello");
+    });
+  });
+
 }]);
 
 // inject without array, just parameters

@@ -1,5 +1,9 @@
 var demoApp = angular.module('demoApp', []);
 
+// WATCH OUT! All of these are using implicit annotation for dependency injection.
+// The recommended way to annotate dependencies is with an inline array.
+// See: https://docs.angularjs.org/guide/di
+
 // Using named function
 //function SimpleController($scope) {
 //  $scope.color = 'green';
