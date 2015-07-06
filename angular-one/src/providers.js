@@ -37,6 +37,20 @@ function UnicornLauncher(apiToken) {
 // return new UnicornLauncher(apiToken);
 myApp.service('unicornLauncher', ['apiToken', UnicornLauncher]);
 
+// You should use the Provider recipe only when you want to expose 
+// an API for application-wide configuration that must be made before 
+// the application starts. This is usually interesting only for 
+// reusable services whose behavior might need to 
+// vary slightly between applications.
+//
+// Provider recipe to be used in config block.
+// Need some extra research in docs.
+//myApp.provider('UnicornLauncher', function UnicornLauncherProvider() {
+//  this.$get = ['apiToken', function unicornLauncherFactory(apiToken) {
+//    return new UnicornLauncher(apiToken);
+//  }];
+//});
+
 // Constant recipe to be used in config block.
 myApp.constant('planetName', 'Mars');
 myApp.config(['planetName', function(planetName) {
