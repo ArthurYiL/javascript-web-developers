@@ -1,4 +1,8 @@
 "use strict";
+
+// Providers' recipes.
+// See: https://docs.angularjs.org/guide/providers
+
 var myApp = angular.module('myApp', []);
 
 // inject to controller using array
@@ -24,7 +28,23 @@ myApp.factory('apiToken', ['clientId', function apiTokenFactory(clientId) {
   return apiToken;
 }]);
 
-myApp.controller('DemoController', ['clientId', 'clientIdFromFactory', 'apiToken', function DemoController(clientId, clientIdFromFactory, apiToken) {
+// a function used to build an instance of a custom type
+function UnicornLauncher(apiToken) {
+  this.unicorn = 'unicorn from ' + apiToken;
+}
+
+// This service recipe is equivalent to a factory recipe with this:
+// return new UnicornLauncher(apiToken);
+myApp.service('unicornLauncher', ['apiToken', UnicornLauncher]);
+
+// Constant recipe to be used in config block.
+myApp.constant('planetName', 'Mars');
+myApp.config(['planetName', function(planetName) {
+  // the constant is available here in the configuration phase
+  console.log('planetName defined as constant, hence available in configuration phase: ' + planetName);
+}]);
+
+myApp.controller('DemoController', ['clientId', 'clientIdFromFactory', 'apiToken', 'unicornLauncher', 'planetName', function DemoController(clientId, clientIdFromFactory, apiToken, unicornLauncher, planetName) {
   // Note we're using inline annotation too to inject dependencies.
   
   // Below, we try another way of doing "this.clientId = clientId;"
@@ -33,4 +53,8 @@ myApp.controller('DemoController', ['clientId', 'clientIdFromFactory', 'apiToken
   demo.clientId = clientId;
   demo.clientIdFromFactory = clientIdFromFactory;
   demo.apiToken = apiToken;
+  demo.unicornLauncher = unicornLauncher;
+
+  // the constant is available here in the run phase
+  demo.planetName = planetName;
 }]);
