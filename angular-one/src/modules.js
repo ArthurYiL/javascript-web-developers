@@ -1,3 +1,4 @@
+"use strict";
 var myAppModule = angular.module('myApp', []);
 
 myAppModule.filter('greet', function() {
@@ -20,6 +21,7 @@ myAppModule.service('testRunService', function() {
   };
 
   service.sayName = function(name) {
+    // this should use $log, see below
     console.log('the name is ' + name);
   };
 });
@@ -27,7 +29,7 @@ myAppModule.service('testRunService', function() {
 myAppModule.filter('aloha', ['testService', function(testService) {
   testService.saySomething();
   return function(name) {
-    return 'Aloha, ' + name + '!';
+    return 'Aloha there, ' + name + '!';
   }
 }]);
 
@@ -37,7 +39,7 @@ myAppModule.run(['testRunService', function(testRunService) {
 
 // inject to controller using array
 // see: https://docs.angularjs.org/guide/di 
-myAppModule.controller('MyController', ['$scope', 'testRunService', function($scope, testRunService) {
+myAppModule.controller('MyController', ['$scope', '$log', '$window', 'testRunService', function($scope, $log, $window, testRunService) {
   $scope.insect = 'tiny worm';
 
   $scope.double = function(value) {
@@ -45,6 +47,11 @@ myAppModule.controller('MyController', ['$scope', 'testRunService', function($sc
       value = 0;
     }
     return value * 2;
+  };
+
+  $scope.notify = function(msg) {
+    $log.log('preparing alert');
+    $window.alert('Message is: ' + msg);
   };
 
   testRunService.sayName($scope.insect);
