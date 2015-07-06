@@ -11,7 +11,13 @@
       <h1>Providers test</h1>
 
       <div ng-controller="MyController">
+        <h2>Not using controller-as syntax so we refer to color property of $scope directly.</h2>
         <p>The color is a <strong>{{ color }}</strong></p>
+      </div>
+
+      <div ng-controller="DemoController as demo">
+        <h2>Need to use demo.clientId because of the controller-as syntax.</h2>
+        <p>The clientId defined by a value recipe is <strong>{{ demo.clientId }}</strong></p>
       </div>
 
     </body>
