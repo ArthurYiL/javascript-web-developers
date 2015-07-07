@@ -13,6 +13,20 @@
       <div ng-controller="MyController">
         <h2>Not using controller-as syntax so we refer to color property of $scope directly.</h2>
         <p>The color is a <strong>{{ color }}</strong></p>
+        <p>{{ person }}</p>
+        <p><strong>{{ person.name }}</strong> is <strong>{{ person.age }}</strong> years old.</p>
+
+        <div>
+          <input ng-model="expr" type="text" placeholder="Enter an expression" />
+          <p>parsedValue: {{ parsedValue }}</p>
+        </div>
+
+        <hr />
+        <button ng-click="add(1)">add</button>
+        <button ng-click="substract(1)">Substract</button>
+        <h4>Current count: {{ counter }}</h4>
+        <hr />
+
       </div>
 
       <div ng-controller="DemoController as demo">
@@ -21,6 +35,16 @@
         <p>The greeting is <strong>{{ demo.greetings('goodbye') }}</strong></p>
       </div>
 
+      <div ng-controller="ParentController">
+        Parent: {{ person }}
+        <div ng-controller="ChildController">
+          Child: {{ person }}
+        </div>
+      </div>
+
+      <div ng-controller="ChildController">
+        Child: {{ person }}
+      </div>
 
     </body>
 
