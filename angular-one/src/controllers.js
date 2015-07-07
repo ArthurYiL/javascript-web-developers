@@ -5,7 +5,7 @@ var myApp = angular.module('myApp', []);
 // inject to controller using array
 // see: https://docs.angularjs.org/guide/di 
 
-myApp.controller('MyController', ['$scope', '$parse', function($scope, $parse) {
+myApp.controller('MyController', ['$scope', '$parse', '$interpolate', function($scope, $parse, $interpolate) {
   // This is using $scope, so the directive is a simple ng-controller="MyController".
   $scope.color = 'green';
   $scope.counter = 0;
@@ -16,6 +16,13 @@ myApp.controller('MyController', ['$scope', '$parse', function($scope, $parse) {
     name: "Ari Lerner",
     age: 24
   };
+
+  $scope.$watch('emailBody', function(body) {
+    if (body) {
+      var template = $interpolate(body);
+      $scope.previewText = template({to: $scope.to});
+    }
+  });
 
   $scope.$watch('expr', function(newVal, oldVal, scope) {
     if (newVal !== oldVal) {

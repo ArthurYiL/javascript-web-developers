@@ -21,6 +21,14 @@
           <p>parsedValue: {{ parsedValue }}</p>
         </div>
 
+        <div id="emailEditor">
+          <input ng-model="to" type="email" placeholder="recipient" />
+          <textarea ng-model="emailBody"></textarea>
+        </div>
+        <div id="emailPreview">
+          <pre>{{ previewText }}</pre>
+        </div>
+
         <hr />
         <button ng-click="add(1)">add</button>
         <button ng-click="substract(1)">Substract</button>
