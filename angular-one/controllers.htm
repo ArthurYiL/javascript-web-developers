@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="src/controllers.js"></script>
+    </head>
+
+    <body ng-app="myApp">
+
+      <h1>Controller test</h1>
+
+      <div ng-controller="MyController">
+        <h2>Not using controller-as syntax so we refer to color property of $scope directly.</h2>
+        <p>The color is a <strong>{{ color }}</strong></p>
+      </div>
+
+      <div ng-controller="DemoController as demo">
+        <h2>Need to use demo.clientId because of the controller-as syntax.</h2>
+        <p>The clientId defined by a value recipe is <strong>{{ demo.clientId }}</strong></p>
+        <p>The greeting is <strong>{{ demo.greetings('goodbye') }}</strong></p>
+      </div>
+
+
+    </body>
+
+</html>
