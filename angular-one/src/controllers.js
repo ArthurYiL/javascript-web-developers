@@ -5,9 +5,9 @@ var myApp = angular.module('myApp', []);
 // inject to controller using array
 // see: https://docs.angularjs.org/guide/di 
 
-myApp.controller('MyController', ['$scope', '$parse', '$interpolate', function($scope, $parse, $interpolate) {
+myApp.controller('MyController', ['$scope', '$parse', '$interpolate', '$filter', function($scope, $parse, $interpolate, $filter) {
   // This is using $scope, so the directive is a simple ng-controller="MyController".
-  $scope.color = 'green';
+  $scope.color = $filter('uppercase')('green');
   $scope.counter = 0;
   $scope.add = function(amount) { $scope.counter += amount; };
   $scope.substract = function(amount) { $scope.counter -= amount; };

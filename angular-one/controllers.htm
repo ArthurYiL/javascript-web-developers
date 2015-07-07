@@ -14,7 +14,7 @@
         <h2>Not using controller-as syntax so we refer to color property of $scope directly.</h2>
         <p>The color is a <strong>{{ color }}</strong></p>
         <p>{{ person }}</p>
-        <p><strong>{{ person.name }}</strong> is <strong>{{ person.age }}</strong> years old.</p>
+        <p><strong>{{ person.name }}</strong> is <strong>{{ person.age | number:2 }}</strong> years old.</p>
 
         <div>
           <input ng-model="expr" type="text" placeholder="Enter an expression" />
