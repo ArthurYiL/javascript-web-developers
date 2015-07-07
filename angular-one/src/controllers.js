@@ -36,6 +36,13 @@ myApp.controller('MyController', ['$scope', '$parse', '$interpolate', '$filter',
 
 }]);
 
+myApp.directive('myDirective', function() {
+  return {
+    restrict: 'E',
+    template: '<a href="http://google.com">Click me to go to Google</a>'
+  }
+});
+
 myApp.value('clientId', 'a123');
 
 // The factory returns a function object that accepts the message parameter
