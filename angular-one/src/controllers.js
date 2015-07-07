@@ -29,7 +29,9 @@ myApp.controller('MyController', ['$scope', '$parse', '$interpolate', '$filter',
       var parseFun = $parse(newVal);
       if (parseFun.assign != undefined) {
         var modifiedVal = '** modified: ' + newVal + ' **';
-        $scope.parsedValue = parseFun.assign($scope, modifiedVal);
+        $scope.parsedValue = modifiedVal;
+        //$scope.parsedValue = parseFun.assign($scope, modifiedVal);
+        //parseFun.assign($scope.parsedValue, 'YparsedValue');
       }
     }
   });
