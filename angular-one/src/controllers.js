@@ -81,6 +81,17 @@ myApp.directive('myOtherDirective', function() {
   }
 });
 
+myApp.directive('controllerDirective', function() {
+  return {
+    restrict: 'A',
+    template: '<h4>{{ myController.msg }}</h4>',
+    controllerAs: 'myController',
+    controller: function() {
+      this.msg = "Hello World, coming from controllerDirective";
+    }
+  }
+});
+
 myApp.value('clientId', 'a123');
 
 // The factory returns a function object that accepts the message parameter
