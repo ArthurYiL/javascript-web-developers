@@ -2,9 +2,26 @@
 
 var myApp = angular.module('myApp', []);
 
+// manually indentify dependencies
+// see: https://github.com/johnpapa/angular-styleguide#style-y091
+
+myApp.controller('DashboardController', Dashboard);
+Dashboard.$inject = ['$scope'];
+
+function Dashboard($scope) {
+  $scope.number = 5;
+}
+
+myApp.controller('PanelController', Panel);
+Panel.$inject = ['clientId'];
+
+function Panel(clientId) {
+  var panel = this;
+  panel.promoCode = 'promo code for ' + clientId;
+}
+
 // inject to controller using array
 // see: https://docs.angularjs.org/guide/di 
-
 myApp.controller('MyController', ['$scope', '$parse', '$interpolate', '$filter', function($scope, $parse, $interpolate, $filter) {
   // This is using $scope, so the directive is a simple ng-controller="MyController".
   $scope.color = $filter('uppercase')('green');

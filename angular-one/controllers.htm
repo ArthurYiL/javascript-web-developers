@@ -12,6 +12,14 @@
 
       <my-directive /></my-directive>
 
+      <div ng-controller="DashboardController">
+        <h2>Number via DashboardController: {{ number }}</h2>
+      </div>
+
+      <div ng-controller="PanelController as panel">
+        <h2>Letter via PanelController: {{ panel.promoCode }}</h2>
+      </div>
+
       <div ng-controller="MyController">
         <h2>Not using controller-as syntax so we refer to color property of $scope directly.</h2>
         <p>The color is a <strong>{{ color }}</strong></p>
