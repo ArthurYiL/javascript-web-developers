@@ -10,13 +10,22 @@
 
       <h1>Controller test</h1>
 
-      <my-directive></my-directive>
+      <my-directive /></my-directive>
 
       <div ng-controller="MyController">
         <h2>Not using controller-as syntax so we refer to color property of $scope directly.</h2>
         <p>The color is a <strong>{{ color }}</strong></p>
         <p>{{ person }}</p>
         <p><strong>{{ person.name }}</strong> is <strong>{{ person.age | number:2 }}</strong> years old.</p>
+
+        <div style="margin: 10px; border: 2px solid red; padding: 5px;">
+          <div my-other-directive my-url="'http://www.yahoo.com'" my-link-text="'Go to Yahoo'"></div>
+        </div>
+
+        <div style="margin: 10px; border: 2px solid green; padding: 5px;">
+          <div my-second-directive my-url="http://www.bing.com" my-link-text="Go to Bing"></div>
+        </div>
+
 
         <div>
           <input ng-model="expr" type="text" placeholder="Enter an expression" />

@@ -36,12 +36,46 @@ myApp.controller('MyController', ['$scope', '$parse', '$interpolate', '$filter',
     }
   });
 
+  $scope.myLinkText = 'link text from controller';
+  $scope.myUrl = 'http://bing.com';
+
 }]);
 
 myApp.directive('myDirective', function() {
   return {
     restrict: 'E',
-    template: '<a href="http://google.com">Click me to go to Google</a>'
+    replace: true,
+    //template: '<a href="http://google.com">Click me to go to Google</a>'
+    templateUrl: '/src/directiveTemplate.html'
+  }
+});
+
+// Use scope with @ for one-time binding, which won't evaluate
+// the values of my-url and my-link-text in the directive.
+myApp.directive('mySecondDirective', function() {
+  return {
+    restrict: 'A',
+    replace: true,
+    scope: {
+      myUrl: '@',
+      myLinkText: '@'
+    },
+    template: '<a href="{{myUrl}}">{{myLinkText}}</a>'
+  }
+});
+
+// Use scope with = for two-way binding.
+// In this case, single quotes need to be used in the directive
+// to avoid evaluating my-url and my-link-text.
+myApp.directive('myOtherDirective', function() {
+  return {
+    restrict: 'A',
+    replace: true,
+    scope: {
+      myUrl: '=',
+      myLinkText: '='
+    },
+    template: '<a href="{{myUrl}}">{{myLinkText}}</a>'
   }
 });
 
