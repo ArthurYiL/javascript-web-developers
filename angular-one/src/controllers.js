@@ -71,6 +71,8 @@ myApp.directive('myOtherDirective', function() {
   return {
     restrict: 'A',
     replace: true,
+    // comment out the scope object to use values
+    // from the controller
     scope: {
       myUrl: '=',
       myLinkText: '='
