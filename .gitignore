@@ -1,2 +1,13 @@
 *.swp
 *.swo
+
+.svn
+.DS_Store
+.thumbsdb
+.sass-cache
+npm-debug.log
+composer.lock
+vendor
+node_modules
+bower_components
+build/apps/lib/bower_components
