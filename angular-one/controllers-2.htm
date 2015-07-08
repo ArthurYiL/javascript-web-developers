@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="src/controllers-2.js"></script>
+    </head>
+
+    <body ng-app="myApp">
+
+      <h1>Controller test 2</h1>
+
+      <div ng-controller="DashboardController">
+        <h2>Number via DashboardController: {{ number }}</h2>
+      </div>
+
+      <div ng-controller="PanelController as panel">
+        <h2>Letter via PanelController: {{ panel.promoCode }}</h2>
+      </div>
+
+    </body>
+
+</html>
