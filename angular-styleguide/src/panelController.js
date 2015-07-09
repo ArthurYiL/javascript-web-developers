@@ -1,11 +1,10 @@
 (function() {
   "use strict";
 
-  var myApp = angular.module('myApp', []);
+  angular
+    .module('app')
+    .controller('PanelController', Panel);
 
-  myApp.value('clientId', 'clientXYZ-112');
-
-  myApp.controller('PanelController', Panel);
   Panel.$inject = ['clientId'];
   
   function Panel(clientId) {
