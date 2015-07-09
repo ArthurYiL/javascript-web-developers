@@ -1,1 +1,3 @@
-document.write(require("./content.js"));
+require("./style.css");
+require("./colors.scss");
+console.log(require("./content.js"));
