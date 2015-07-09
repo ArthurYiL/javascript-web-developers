@@ -8,8 +8,9 @@
   Panel.$inject = ['clientId'];
   
   function Panel(clientId) {
-    var panel = this;
-    panel.promoCode = 'promo code for ' + clientId;
+    /*jshint validthis: true */
+    var vm = this;
+    vm.promoCode = 'promo code for ' + clientId;
   }
 
 })();
