@@ -5,9 +5,9 @@
     .module('app')
     .controller('PanelController', Panel);
 
-  Panel.$inject = ['clientId'];
+  Panel.$inject = ['clientId', 'storyModel'];
   
-  function Panel(clientId) {
+  function Panel(clientId, storyModel) {
     /*jshint validthis: true */
     var vm = this;
     vm.promoCode = 'promo code for ' + clientId;
@@ -18,27 +18,7 @@
     vm.logCurrentStory = logCurrentStory;
 
     vm.createStory = createStory;
-
-    vm.stories = [
-      {
-        title: 'First story',
-        description: 'Our first story',
-        criteria: 'Criteria pending.',
-        status: 'To Do',
-        type: 'Feature',
-        reporter: 'Lukas Silva',
-        assignee: 'Brian Ford'
-      },
-      {
-        title: 'Second story',
-        description: 'Do something',
-        criteria: 'Criteria pending.',
-        status: 'Back Log',
-        type: 'Feature',
-        reporter: 'Lukas Silva',
-        assignee: 'Brian Ford'
-      }
-    ];
+    vm.stories = storyModel.getStories();
 
     // Avoid anonymous functions like this
     vm.setCurrentStory = function(story) {
