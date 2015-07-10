@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/main.css">
         <script src="node_modules/angular/angular.min.js"></script>
         <script src="src/app.module.js"></script>
         <script src="src/clientId.js"></script>
@@ -14,6 +15,22 @@
 
       <div ng-controller="PanelController as vm">
         <h2>Letter via PanelController here: {{ vm.promoCode }}</h2>
+
+        <h2>Stories</h2>
+        <div class="callout"
+          ng-repeat="story in vm.stories"
+          ng-click="vm.setCurrentStory(story)">
+            <h4>{{ story.title }}</h4>
+            <p>{{ story.description }}</p>
+        </div>
+
+        <h2>Stories, again</h2>
+        <div class="callout"
+          ng-repeat="story in vm.stories"
+          ng-click="vm.logCurrentStory(story)">
+            <h4>{{ story.title }}</h4>
+            <p>{{ story.description }}</p>
+        </div>
       </div>
 
     </body>
