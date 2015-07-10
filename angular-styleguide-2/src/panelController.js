@@ -5,9 +5,9 @@
     .module('app')
     .controller('PanelController', Panel);
 
-  Panel.$inject = ['clientId', 'storyModel'];
+  Panel.$inject = ['clientId', 'storyModel', 'helperFactory'];
   
-  function Panel(clientId, storyModel) {
+  function Panel(clientId, storyModel, helperFactory) {
     /*jshint validthis: true */
     var vm = this;
     vm.promoCode = 'promo code for ' + clientId;
@@ -19,6 +19,8 @@
 
     vm.createStory = createStory;
     vm.stories = storyModel.getStories();
+    vm.sum = helperFactory.sum(3, 5);
+    vm.multiplication = helperFactory.multiply(3, 5);
 
     // Avoid anonymous functions like this
     vm.setCurrentStory = function(story) {
