@@ -6,6 +6,7 @@
         <script src="node_modules/angular/angular.min.js"></script>
         <script src="src/app.module.js"></script>
         <script src="src/storyModelService.js"></script>
+        <script src="src/storyDirective.js"></script>
         <script src="src/helperFactory.js"></script>
         <script src="src/clientId.js"></script>
         <script src="src/panelController.js"></script>
@@ -36,6 +37,12 @@
             <h4>{{ story.title }}</h4>
             <p>{{ story.description }}</p>
         </div>
+
+        <h2>Stories with directive</h2>
+        <story-directive class="callout"
+          ng-repeat="story in vm.stories"
+          ng-click="vm.setCurrentStory(story)">
+        </story-directive>
 
         <p>
           <a href="#" ng-click="vm.createStory()">Create story</a>
