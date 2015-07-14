@@ -14,10 +14,13 @@
 
     <body ng-app="app">
 
-      <h1>Index Styleguide 2</h1>
+      <h1>Index Styleguide</h1>
 
       <div ng-controller="PanelController as vm">
         <h2>Letter via PanelController here: {{ vm.promoCode }}</h2>
+
+        <p><input ng-model="person.name" type="text" /></p>
+        <p>person.name from input above (unrelated to PanelController): {{ person.name }}</p>
 
         <p>Sum coming from factory is {{ vm.sum }}</p>
         <p>Multiplication coming from factory is {{ vm.multiplication }}</p>
