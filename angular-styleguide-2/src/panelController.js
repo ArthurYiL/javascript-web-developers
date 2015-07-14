@@ -5,12 +5,13 @@
     .module('app')
     .controller('PanelController', Panel);
 
-  Panel.$inject = ['clientId', 'storyModel', 'helperFactory'];
+  Panel.$inject = ['clientId', 'storyModel', 'helperFactory', '$timeout'];
   
-  function Panel(clientId, storyModel, helperFactory) {
+  function Panel(clientId, storyModel, helperFactory, $timeout) {
     /*jshint validthis: true */
     var vm = this;
     vm.promoCode = 'promo code for ' + clientId;
+    vm.clock = {};
 
     // Prefer named functions and bind them at the top
     // of the controller. The function is defined later via 
@@ -21,6 +22,8 @@
     vm.stories = storyModel.getStories();
     vm.sum = helperFactory.sum(3, 5);
     vm.multiplication = helperFactory.multiply(3, 5);
+
+    vm.updateClock = updateClock;
 
     // Avoid anonymous functions like this
     vm.setCurrentStory = function(story) {
@@ -44,6 +47,15 @@
         assignee: 'Pending'
       });
     }
+
+    function updateClock() {
+      vm.clock.now = new Date();
+      $timeout(function() {
+        vm.updateClock();
+      }, 1000);
+    }
+    // Needs to be called like this to start:
+    //vm.updateClock();
 
   }
 
