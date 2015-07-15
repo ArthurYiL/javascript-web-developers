@@ -28,7 +28,7 @@
           <form name="form" novalidate>
             <label name="email">Your email</label>
             <input type="email" name="email" ng-model="email" placeholder="Email Address" required ng-pattern="/^a.*t$/" />
-            <button type="submit">Submit</button>
+            <button type="submit" ng-disabled="form.$invalid">Submit</button>
           </form>
           <p>form.email.$pristine {{ form.email.$pristine }}</p>
           <p>form.email.$dirty {{ form.email.$dirty }}</p>
