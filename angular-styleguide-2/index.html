@@ -24,6 +24,19 @@
         <p><input ng-model="person.name" type="text" /></p>
         <p>person.name from input above (unrelated to PanelController): {{ person.name }}</p>
 
+        <div style="border: 3px solid purple; padding: 10px;">
+          <form name="form" novalidate>
+            <label name="email">Your email</label>
+            <input type="email" name="email" ng-model="email" placeholder="Email Address" required ng-pattern="/^a.*t$/" />
+            <button type="submit">Submit</button>
+          </form>
+          <p>form.email.$pristine {{ form.email.$pristine }}</p>
+          <p>form.email.$dirty {{ form.email.$dirty }}</p>
+          <p>form.email.$valid {{ form.email.$valid }}</p>
+          <p>form.email.$invalid {{ form.email.$invalid }}</p>
+          <p>form.email.$error {{ form.email.$error }}</p>
+        </div>
+
         <p>vm.clock.now {{ vm.clock.now }} (see comment in panelController.js)</p>
 
         <p>Sum coming from factory is {{ vm.sum }}</p>
