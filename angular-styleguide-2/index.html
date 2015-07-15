@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
         <script src="node_modules/angular/angular.min.js"></script>
+        <script src="src/filters.js"></script>
         <script src="src/app.module.js"></script>
         <script src="src/storyModelService.js"></script>
         <script src="src/storyDirective.js"></script>
@@ -18,6 +19,7 @@
 
       <div ng-controller="PanelController as vm">
         <h2>Letter via PanelController here: {{ vm.promoCode }}</h2>
+        <p>Using a filter for {{ 'a word' | myFilter }}</p>
 
         <p><input ng-model="person.name" type="text" /></p>
         <p>person.name from input above (unrelated to PanelController): {{ person.name }}</p>
