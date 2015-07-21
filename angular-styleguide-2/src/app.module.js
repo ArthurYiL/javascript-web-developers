@@ -2,6 +2,6 @@
   "use strict";
 
   angular
-    .module('app', ['appFilters']);
+    .module('app', ['appFilters', 'appDummyDirective']);
 
 })();

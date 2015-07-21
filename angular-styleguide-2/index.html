@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="node_modules/angular/angular.min.js"></script>
         <script src="src/filters.js"></script>
+        <script src="src/dummyDirective.js"></script>
         <script src="src/app.module.js"></script>
         <script src="src/storyModelService.js"></script>
         <script src="src/storyDirective.js"></script>
@@ -16,6 +17,8 @@
     <body ng-app="app">
 
       <h1>Index Styleguide</h1>
+
+      <dummy-directive></dummy-directive>
 
       <div ng-controller="PanelController as vm">
         <h2>Letter via PanelController here: {{ vm.promoCode }}</h2>
