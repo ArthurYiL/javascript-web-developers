@@ -8,6 +8,7 @@
   // see other examples of directives in angular-one/src/controllers.js
   function dummyDirective() {
     return {
+      restrict: 'E',
       replace: true,
       template: '<h1>This is a dummy directive. See dummyDirective</h1>'
     }

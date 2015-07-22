@@ -10,7 +10,15 @@
   function Panel(clientId, storyModel, helperFactory, $timeout) {
     /*jshint validthis: true */
     var vm = this;
+
+    // It’s important to not to set a value object (string, boolean, or number) 
+    // directly on the $scope of a controller for a number of technological and architectural reasons. 
+    // Data in the DOM should always use a . (dot). 
+    // Following this rule will keep you out of unexpected trouble.
+    // So, this one is not a good idea.
     vm.promoCode = 'promo code for ' + clientId;
+
+    // but this one, which is an object, is fine.
     vm.clock = {};
 
     // Prefer named functions and bind them at the top
