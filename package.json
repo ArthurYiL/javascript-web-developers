@@ -1,0 +1,21 @@
+{
+  "name": "angular-application-generic",
+  "version": "0.0.0",
+  "description": "Angular tests based on https://github.com/johnpapa/angular-styleguide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.4.2",
+    "angular-mocks": "^1.4.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.37",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6"
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="src/app.module.js"></script>
+        <script src="src/storyModelService.js"></script>
+        <script src="src/helperFactory.js"></script>
+        <script src="src/clientId.js"></script>
+        <script src="src/panelController.js"></script>
+    </head>
+
+    <body ng-app="app">
+
+      <h1>Routes 1</h1>
+
+      <div ng-controller="PanelController as vm">
+        <p>Sum coming from factory is {{ vm.sum }}</p>
+        <p>Multiplication coming from factory is {{ vm.multiplication }}</p>
+
+        <h2>Stories, again</h2>
+        <div class="callout"
+          ng-repeat="story in vm.stories"
+          ng-click="vm.logCurrentStory(story)">
+            <h4>{{ story.title }}</h4>
+            <p>{{ story.description }}</p>
+        </div>
+
+        <p>
+          <a href="#" ng-click="vm.createStory()">Create story</a>
+        </p>
+
+      </div>
+
+    </body>
+
+</html>

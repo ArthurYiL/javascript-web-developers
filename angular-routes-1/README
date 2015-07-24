@@ -1,0 +1,1 @@
+No need for a package.json or node_modules here as we can just use the ones from the parent directory.

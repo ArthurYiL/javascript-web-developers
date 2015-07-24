@@ -1,0 +1,21 @@
+.callout {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid green;
+}
+
+input.ng-pristine {
+  border: 2px solid yellow;
+}
+
+input.ng-dirty {
+  border: 2px solid brown;
+}
+
+input.ng-valid {
+  border: 2px solid blue;
+}
+
+input.ng-invalid {
+  border: 2px solid red;
+}

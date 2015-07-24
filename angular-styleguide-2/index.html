@@ -49,7 +49,7 @@
         <div class="callout"
           ng-repeat="story in vm.stories"
           ng-click="vm.setCurrentStory(story)">
-            <h4>{{ story.title }}</h4>
+            <h4>$index is {{ $index }} - {{ story.title }}</h4>
             <p>{{ story.description }}</p>
         </div>
 
