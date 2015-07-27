@@ -1,0 +1,5 @@
+No need for a Gruntfile.js, package.json or node_modules here as we can just use the ones from the parent directory.
+
+Run http-server from parent directory in order to serve from ../node_modules and browse like http://localhost:8080/angular-routes-1/index.html
+
+Run grunt from parent directory. Note that the mini angular apps need to be in a directory starting with 'angular-' for grunt watch to work.
