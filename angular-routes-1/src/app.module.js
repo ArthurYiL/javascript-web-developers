@@ -1,10 +1,27 @@
 (function() {
   "use strict";
 
+  // DashboardController is available when injecting the dashboard.controller module into app.
+  // Same goes for other modules..
   angular
-    .module('app', ['ngRoute'])
+    .module('app', ['ngRoute', 'home.controller', 'login.controller', 'dashboard.controller'])
     .config(['$routeProvider', function($routeProvider) {
-      console.log('routes with inline annotation');
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/home.html',
+          controller: 'HomeController'
+        })
+        .when('/login', {
+          templateUrl: 'views/login.html',
+          controller: 'LoginController'
+        })
+        .when('/dashboard', {
+          templateUrl: 'views/dashboard.html',
+          controller: 'DashboardController'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
     }]);
 
   //angular
