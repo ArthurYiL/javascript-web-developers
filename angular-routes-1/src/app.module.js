@@ -16,7 +16,7 @@
           templateUrl: 'views/home.html',
           controller: 'HomeController'
         })
-        .when('/login', {
+        .when('/login/:username', {
           templateUrl: 'views/login.html',
           controller: 'LoginController'
         })

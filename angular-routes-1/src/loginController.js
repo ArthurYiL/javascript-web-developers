@@ -2,19 +2,26 @@
   "use strict";
 
   angular
-    .module('login.controller', [])
+    .module('login.controller', ['ngRoute', 'app.location'])
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = [];
+  LoginController.$inject = ['$routeParams', '$location', 'locationFactory'];
 
-  function LoginController() {
+  function LoginController($routeParams, $location, locationFactory) {
     /*jshint validthis: true */
     console.log('test LoginController');
     var vm = this;
 
+    vm.$location = $location;
+    vm.locationFactory = {
+      path: locationFactory.path()
+    }
+
     vm.person = {
-      name: 'Tim',
-      age: 784
+      name: 'Timothy',
+      age: 784,
+      username: $routeParams.username,
+      id: $routeParams.id,
     };
   }
 
