@@ -9,13 +9,14 @@
 
   function DashboardController() {
     /*jshint validthis: true */
-    console.log('test DashboardController');
+    //console.log('test DashboardController');
     var vm = this;
 
     vm.person = {
       name: 'Joe',
       age: 24
     };
+
   }
 
 })();
