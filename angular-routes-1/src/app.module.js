@@ -6,11 +6,22 @@
   // I'm using a template string and anonymous controller function for /dashboard.
   angular
     .module('app', ['ngRoute', 'home.controller', 'login.controller', 'dashboard.controller'])
-    //.run(['$templateCache', function($templateCache) {
-    //  console.log('run to clear template caches');
-    //  $templateCache.removeAll();
-    //}])
-    .config(['$routeProvider', function($routeProvider) {
+    .run(['$rootScope', function($rootScope) {
+      console.log('run block');
+
+      $rootScope.$on('$routeChangeStart', function(evt, next, current) {
+        console.log('$routeChangeStart');
+        console.log(evt);
+        console.log(next);
+        console.log(current);
+      });
+
+    }])
+    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
+      //$locationProvider.html5Mode(false);
+      //$locationProvider.hashPrefix('!');
+
       $routeProvider
         .when('/', {
           templateUrl: 'views/home.html',

@@ -3,7 +3,7 @@
 
   angular
     .module('app.location', ['ngRoute'])
-    .service('locationFactory', locationFactory);
+    .factory('locationFactory', locationFactory);
 
   locationFactory.$inject = ['$location'];
 

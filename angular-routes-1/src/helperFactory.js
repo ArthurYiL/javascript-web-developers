@@ -3,7 +3,7 @@
 
   angular
     .module('app')
-    .service('helperFactory', helperFactory);
+    .factory('helperFactory', helperFactory);
 
   function helperFactory() {
     function sum(a, b) {
@@ -11,7 +11,7 @@
     }
 
     function multiply(a, b) {
-      return a * b;
+      return a * b * 2;
     }
 
     return {

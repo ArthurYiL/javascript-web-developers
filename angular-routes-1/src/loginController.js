@@ -9,7 +9,7 @@
 
   function LoginController($routeParams, $location, locationFactory) {
     /*jshint validthis: true */
-    console.log('test LoginController');
+    console.log('test LoginController ' + $location.absUrl());
     var vm = this;
 
     vm.$location = $location;
