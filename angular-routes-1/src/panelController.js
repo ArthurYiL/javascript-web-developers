@@ -2,12 +2,12 @@
   "use strict";
 
   angular
-    .module('panel.controller', ['story.model'])
+    .module('panel.controller', [])
     .controller('PanelController', Panel);
 
-  Panel.$inject = ['clientId', 'storyModel', 'helperFactory', '$timeout'];
+  Panel.$inject = ['$timeout', 'clientId', 'storyModel', 'helperFactory', 'simpleFactory'];
   
-  function Panel(clientId, storyModel, helperFactory, $timeout) {
+  function Panel($timeout, clientId, storyModel, helperFactory, simpleFactory) {
     /*jshint validthis: true */
     var vm = this;
 
@@ -20,6 +20,9 @@
     vm.stories = storyModel.getStories();
     vm.sum = helperFactory.sum(3, 5);
     vm.multiplication = helperFactory.multiply(3, 5);
+    vm.sayHi = simpleFactory.sayHi;
+
+    vm.getUserData = simpleFactory.getUserData;
 
     // Avoid anonymous functions like this
     vm.setCurrentStory = function(story) {

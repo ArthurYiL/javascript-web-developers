@@ -5,23 +5,19 @@
   // Same goes for other modules.
   // I'm using a template string and anonymous controller function for /dashboard.
   angular
-    .module('app', ['ngRoute', 'panel.controller', 'home.controller', 'login.controller', 'dashboard.controller', 'simple.factory', 'helper.factory'])
+    .module('app', ['ngRoute', 'story.model', 'panel.controller', 'home.controller', 'login.controller', 'dashboard.controller', 'simple.factory', 'helper.factory', 'simple.factory'])
     .run(['$rootScope', function($rootScope) {
-      console.log('run block');
+      //console.log('run block');
 
       $rootScope.$on('$routeChangeStart', function(evt, next, current) {
-        console.log('$routeChangeStart');
-        console.log(evt);
-        console.log(next);
-        console.log(current);
+        //console.log('$routeChangeStart');
+        //console.log(evt);
+        //console.log(next);
+        //console.log(current);
       });
 
     }])
     .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider) {
-
-      //$provide.decorator('helperFactory', function($delegate, $log) {
-      //  console.log('decorating');
-      //});
 
       //$locationProvider.html5Mode(false);
       //$locationProvider.hashPrefix('!');

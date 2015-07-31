@@ -9,7 +9,7 @@
 
   function HomeController() {
     /*jshint validthis: true */
-    console.log('test HomeController');
+    //console.log('test HomeController');
     var vm = this;
 
     vm.person = {

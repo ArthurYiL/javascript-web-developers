@@ -10,8 +10,8 @@
         <script src="src/homeController.js"></script>
         <script src="src/loginController.js"></script>
         <script src="src/storyModelService.js"></script>
-        <script src="src/panelController.js"></script>
         <script src="src/simpleFactory.js"></script>
+        <script src="src/panelController.js"></script>
         <script src="src/helperFactory.js"></script>
         <script src="src/app.module.js"></script>
         <script src="src/clientId.js"></script>
@@ -37,6 +37,9 @@
       <div ng-controller="PanelController as vm">
 
         <p>Multiplication from factory is {{ vm.multiplication }}</p>
+        <p>Hi to Oscar: {{ vm.sayHi('Oscar') }}</p>
+
+        <button ng-click="vm.getUserData()">Call $http</button>
 
         <h2>Stories</h2>
         <div class="callout"

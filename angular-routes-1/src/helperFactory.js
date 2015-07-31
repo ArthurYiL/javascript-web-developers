@@ -17,6 +17,6 @@
     return {
       sum: sum,
       multiply: multiply
-    }
+    };
   }
 })();
