@@ -5,7 +5,7 @@
   // Same goes for other modules.
   // I'm using a template string and anonymous controller function for /dashboard.
   angular
-    .module('app', ['ngRoute', 'home.controller', 'login.controller', 'dashboard.controller'])
+    .module('app', ['ngRoute', 'panel.controller', 'home.controller', 'login.controller', 'dashboard.controller', 'simple.factory', 'helper.factory'])
     .run(['$rootScope', function($rootScope) {
       console.log('run block');
 
@@ -17,7 +17,11 @@
       });
 
     }])
-    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider) {
+
+      //$provide.decorator('helperFactory', function($delegate, $log) {
+      //  console.log('decorating');
+      //});
 
       //$locationProvider.html5Mode(false);
       //$locationProvider.hashPrefix('!');

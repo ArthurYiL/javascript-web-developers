@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module('app')
+    .module('panel.controller', ['story.model'])
     .controller('PanelController', Panel);
 
   Panel.$inject = ['clientId', 'storyModel', 'helperFactory', '$timeout'];

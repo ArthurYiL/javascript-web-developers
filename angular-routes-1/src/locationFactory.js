@@ -1,8 +1,9 @@
 (function() {
   "use strict";
 
+  // TODO figure out why changing factory to service works here
   angular
-    .module('app.location', ['ngRoute'])
+    .module('app.location', [])
     .factory('locationFactory', locationFactory);
 
   locationFactory.$inject = ['$location'];

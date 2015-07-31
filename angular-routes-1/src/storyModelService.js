@@ -1,8 +1,10 @@
 (function() {
   "use strict";
 
+  // TODO figure out why changing service to factory doesn't work here,
+  // which seems reasonable.
   angular
-    .module('app')
+    .module('story.model', [])
     .service('storyModel', storyModel);
 
   function storyModel() {

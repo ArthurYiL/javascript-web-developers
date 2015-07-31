@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module('app')
+    .module('helper.factory', [])
     .factory('helperFactory', helperFactory);
 
   function helperFactory() {
