@@ -20,12 +20,13 @@
       $http({
         method: 'POST',
         data: {
-          "title": "Title Test"
+          "title": "Title Test",
+          "body": "bar"
         },
         headers: {
           'X-WP-Nonce': '83136a5506'
         },
-        url: url + '/posts'
+        url: 'http://jsonplaceholder.typicode.com/posts'
       })
       .then(function(resp) {
         console.log('POST $http then');
