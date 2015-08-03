@@ -39,7 +39,13 @@
         <p>Multiplication from factory is {{ vm.multiplication }}</p>
         <p>Hi to Oscar: {{ vm.sayHi('Oscar') }}</p>
 
-        <button ng-click="vm.getUserData()">Call $http</button>
+        <div>
+          <button ng-click="vm.getUserData()">GET $http</button>
+        </div>
+
+        <div>
+          <button ng-click="vm.postUserData()">POST $http</button>
+        </div>
 
         <h2>Stories</h2>
         <div class="callout"

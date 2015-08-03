@@ -23,6 +23,7 @@
     vm.sayHi = simpleFactory.sayHi;
 
     vm.getUserData = simpleFactory.getUserData;
+    vm.postUserData = simpleFactory.postUserData;
 
     // Avoid anonymous functions like this
     vm.setCurrentStory = function(story) {

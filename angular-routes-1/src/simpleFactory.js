@@ -8,19 +8,40 @@
   simpleFactory.$inject = ['$http'];
 
   function simpleFactory($http) {
+    var url = 'http://wp.dev/wp-json/wp/v2';
+
     function sayHi(name) {
       return 'Hi ' + name;
     }
 
+    function postUserData(username) {
+      console.log('calling POST $http');
+      // probably having issues with Cross-site HTTP requests
+      $http({
+        method: 'POST',
+        data: {
+          "title": "Title Test"
+        },
+        headers: {
+          'X-WP-Nonce': '83136a5506'
+        },
+        url: url + '/posts'
+      })
+      .then(function(resp) {
+        console.log('POST $http then');
+        console.log(resp);
+      }, function(resp) {
+        console.log(resp);
+        console.log('error POST $http then');
+      });
+    }
+
     function getUserData(username) {
-      console.log('calling with $http');
-
-      var url = 'http://wp.dev/wp-json/wp/v2/posts/1178';
-
+      console.log('calling GET $http');
       // working on top of promise
       //var promise = $http({
       //  method: 'GET',
-      //  url: url
+      //  url: url + '/posts/1178'
       //});
 
       //promise.success(function(data, status, headers, config) {
@@ -35,7 +56,7 @@
       // chaining
       //$http({
       //  method: 'GET',
-      //  url: url
+      //  url: url + '/posts/1178'
       //})
       //.success(function(data, status, headers, config) {
       //  console.log('success after $http');
@@ -48,7 +69,10 @@
       // using then
       $http({
         method: 'GET',
-        url: url
+        params: {
+          a: 1
+        },
+        url: url + '/posts/1178'
       })
       .then(function(resp) {
         console.log('first function after $http then');
@@ -68,7 +92,8 @@
 
     return {
       sayHi: sayHi,
-      getUserData: getUserData
+      getUserData: getUserData,
+      postUserData: postUserData
     };
   }
 })();

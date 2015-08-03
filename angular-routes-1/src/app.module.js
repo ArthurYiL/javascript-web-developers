@@ -17,7 +17,10 @@
       });
 
     }])
-    .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider) {
+    .config(['$httpProvider', '$provide', '$routeProvider', '$locationProvider', function($httpProvider, $provide, $routeProvider, $locationProvider) {
+
+      $httpProvider.defaults.headers.post['X-Posted-By'] = 'MyAngularApp';
+      $httpProvider.defaults.headers.post['X-WP-Nonce'] = '83136a5506';
 
       //$locationProvider.html5Mode(false);
       //$locationProvider.hashPrefix('!');
