@@ -15,18 +15,47 @@
     function getUserData(username) {
       console.log('calling with $http');
 
-      var promise = $http({
+      var url = 'http://wp.dev/wp-json/wp/v2/posts/1178';
+
+      // working on top of promise
+      //var promise = $http({
+      //  method: 'GET',
+      //  url: url
+      //});
+
+      //promise.success(function(data, status, headers, config) {
+      //  console.log('success after $http');
+      //  console.log(data);
+      //});
+
+      //promise.error(function(data, status, headers, config) {
+      //  console.log('error after $http');
+      //});
+
+      // chaining
+      //$http({
+      //  method: 'GET',
+      //  url: url
+      //})
+      //.success(function(data, status, headers, config) {
+      //  console.log('success after $http');
+      //  console.log(data);
+      //})
+      //.error(function(data, status, headers, config) {
+      //  console.log('error after $http');
+      //});
+      
+      // using then
+      $http({
         method: 'GET',
-        url: 'https://api.github.com/users/defunkt'
-      });
-
-      promise.success(function(data, status, headers, config) {
-        console.log('success after $http');
-        console.log(data);
-      });
-
-      promise.error(function(data, status, headers, config) {
-        console.log('error after $http');
+        url: url
+      })
+      .then(function(resp) {
+        console.log('first function after $http then');
+        console.log(resp.data);
+        console.log(resp);
+      }, function(resp) {
+        console.log('second function after $http then');
       });
 
       var data = {
