@@ -8,7 +8,7 @@
   simpleFactory.$inject = ['$http'];
 
   function simpleFactory($http) {
-    var url = 'http://wp.dev/wp-json/wp/v2';
+    var url = 'http://jsonplaceholder.typicode.com'
 
     function sayHi(name) {
       return 'Hi ' + name;
@@ -26,7 +26,7 @@
         headers: {
           'X-WP-Nonce': '83136a5506'
         },
-        url: 'http://jsonplaceholder.typicode.com/posts'
+        url: url + '/posts'
       })
       .then(function(resp) {
         console.log('POST $http then');
@@ -73,7 +73,7 @@
         params: {
           a: 1
         },
-        url: url + '/posts/1178'
+        url: url + '/posts/1'
       })
       .then(function(resp) {
         console.log('first function after $http then');
